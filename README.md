@@ -18,14 +18,12 @@ A single-page portfolio built from scratch — no frameworks, no templates — f
 
 Pure HTML · CSS · Vanilla JS · Google Fonts (Syne + JetBrains Mono + DM Sans)
 
-## To personalise
 
-Search for these placeholders and replace before sharing:
 
-| Placeholder | Replace with |
+
 |---|---|
-| `[your@email.com]` | Your actual email |
-| `[University Name]` | Your university |
+| `[jaguar999paw@email.com]` |
+| `[Chuka University]` |
 
 ---
 
