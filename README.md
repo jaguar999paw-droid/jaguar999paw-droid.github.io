@@ -22,7 +22,7 @@ Pure HTML · CSS · Vanilla JS · Google Fonts (Syne + JetBrains Mono + DM Sans)
 
 
 |---|---|
-| `[jaguar999paw@email.com]` |
+| `[jaguar999paw@gmail.com]` |
 | `[Chuka University]` |
 
 ---
