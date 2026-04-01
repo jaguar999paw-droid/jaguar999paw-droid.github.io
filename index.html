@@ -3,12 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Paul Wambugu — Software Engineer</title>
-<meta name="description" content="Paul Wambugu — Software Developer, Systems Engineer & AI Integration Specialist based in Kenya."/>
+<title>Paul Wambugu — Software Engineer · AI · CyberSec · Shell · Graphics</title>
+<meta name="description" content="Paul Wambugu — Software Developer, Systems Engineer & AI Integration Specialist based in Chuka, Kenya. Expert in Bash scripting, AI/MCP tooling, CyberSecurity, and Graphics Design."/>
 <meta name="author" content="Paul Wambugu"/>
-<meta property="og:title" content="Paul Wambugu — Software Engineer"/>
-<meta property="og:description" content="Building production-grade systems — from AI agent tooling to self-hosted infrastructure."/>
+<meta name="keywords" content="Paul Wambugu, software engineer Kenya, AI developer, MCP tools, cybersecurity, bash scripting, Chuka University, industrial attachment Kenya"/>
+<meta property="og:title" content="Paul Wambugu — Software Engineer · AI · CyberSec · Shell"/>
+<meta property="og:description" content="Building production-grade systems — from AI agent tooling to self-hosted security labs. Shell wizard. AI integrator. Security researcher. Visual storyteller."/>
 <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://jaguar999paw-droid.github.io"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Paul Wambugu — Software Engineer"/>
+<meta name="twitter:description" content="Shell · AI · CyberSec · Graphics. Building real systems from Chuka, Kenya."/>
+<link rel="canonical" href="https://jaguar999paw-droid.github.io"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
@@ -25,6 +31,10 @@
   --amber:#f5a623;
   --amber-dim:#f5a62330;
   --red:#e05555;
+  --purple:#a78bfa;
+  --purple-dim:#a78bfa30;
+  --blue:#38bdf8;
+  --blue-dim:#38bdf820;
   --text:#e8eaf0;
   --text2:#8a93a8;
   --text3:#4d5668;
@@ -50,7 +60,7 @@ body::before{
     linear-gradient(var(--border) 1px,transparent 1px),
     linear-gradient(90deg,var(--border) 1px,transparent 1px);
   background-size:60px 60px;
-  opacity:.25;
+  opacity:.18;
   pointer-events:none;
   z-index:0;
 }
@@ -58,125 +68,162 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:1rem 5%;
-  background:rgba(8,10,14,.85);
-  backdrop-filter:blur(16px);
+  background:rgba(8,10,14,.9);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 .nav-logo{font-family:var(--font-mono);font-size:.85rem;color:var(--teal);letter-spacing:.05em}
 .nav-logo span{color:var(--text3)}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-family:var(--font-mono);font-size:.78rem;color:var(--text2);text-decoration:none;letter-spacing:.08em;transition:color .2s}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);text-decoration:none;letter-spacing:.08em;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
-.nav-cta{font-family:var(--font-mono);font-size:.78rem;padding:.45rem 1.1rem;border:1px solid var(--teal);color:var(--teal);text-decoration:none;border-radius:var(--r);transition:all .2s;letter-spacing:.06em}
+.nav-cta{font-family:var(--font-mono);font-size:.75rem;padding:.42rem 1rem;border:1px solid var(--teal);color:var(--teal);text-decoration:none;border-radius:var(--r);transition:all .2s;letter-spacing:.06em}
 .nav-cta:hover{background:var(--teal-glow)}
 section{position:relative;z-index:1}
 .container{max-width:1160px;margin:0 auto;padding:0 5%}
+/* ── HERO ── */
 #hero{min-height:100vh;display:flex;align-items:center;padding:8rem 5% 5rem}
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1160px;margin:0 auto;width:100%}
-.hero-eyebrow{font-family:var(--font-mono);font-size:.78rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.7rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:.75rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.7rem}
 .hero-eyebrow::before{content:'';width:2rem;height:1px;background:var(--teal)}
 .hero-name{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
 .hero-name .accent{color:var(--teal)}
-.hero-title{font-family:var(--font-display);font-size:clamp(1rem,2vw,1.3rem);font-weight:400;color:var(--text2);margin-bottom:1.8rem;line-height:1.5}
+.hero-title{font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);font-weight:400;color:var(--text2);margin-bottom:1.8rem;line-height:1.5}
 .hero-title strong{color:var(--text);font-weight:600}
 .hero-bio{font-size:.95rem;color:var(--text2);max-width:480px;margin-bottom:2.5rem;line-height:1.8}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;background:var(--teal);color:var(--bg);font-family:var(--font-mono);font-size:.82rem;font-weight:500;text-decoration:none;border-radius:var(--r);letter-spacing:.05em;transition:all .2s}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.6rem;background:var(--teal);color:var(--bg);font-family:var(--font-mono);font-size:.8rem;font-weight:500;text-decoration:none;border-radius:var(--r);letter-spacing:.05em;transition:all .2s}
 .btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border:1px solid var(--border2);color:var(--text2);font-family:var(--font-mono);font-size:.82rem;text-decoration:none;border-radius:var(--r);letter-spacing:.05em;transition:all .2s}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.6rem;border:1px solid var(--border2);color:var(--text2);font-family:var(--font-mono);font-size:.8rem;text-decoration:none;border-radius:var(--r);letter-spacing:.05em;transition:all .2s}
 .btn-outline:hover{border-color:var(--teal);color:var(--teal)}
 .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
 .stat-num{font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal)}
-.stat-label{font-family:var(--font-mono);font-size:.72rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+.stat-label{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+/* ── TERMINAL ── */
 .hero-terminal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden;font-family:var(--font-mono)}
-.terminal-bar{background:var(--bg3);padding:.7rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}
+.terminal-bar{background:var(--bg3);padding:.65rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}
 .dot{width:10px;height:10px;border-radius:50%}
 .dot.r{background:#e05555}.dot.y{background:#f5a623}.dot.g{background:#00c9a7}
-.terminal-bar span{margin-left:auto;font-size:.72rem;color:var(--text3)}
-.terminal-body{padding:1.5rem 1.2rem;font-size:.8rem;line-height:2.2}
+.terminal-bar span{margin-left:auto;font-size:.7rem;color:var(--text3)}
+.terminal-body{padding:1.4rem 1.2rem;font-size:.78rem;line-height:2.1}
 .t-prompt{color:var(--teal)}.t-cmd{color:var(--text)}.t-comment{color:var(--text3)}
 .t-out{color:var(--text2);padding-left:1rem}.t-key{color:var(--amber)}.t-val{color:var(--teal)}
-.t-cursor{display:inline-block;width:8px;height:14px;background:var(--teal);vertical-align:middle;animation:blink .9s step-end infinite}
+.t-cursor{display:inline-block;width:8px;height:13px;background:var(--teal);vertical-align:middle;animation:blink .9s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* ── SECTION HEADERS ── */
 .sec-header{margin-bottom:3.5rem}
-.sec-tag{font-family:var(--font-mono);font-size:.75rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.sec-tag{font-family:var(--font-mono);font-size:.73rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
 .sec-tag::before{content:'';width:1.5rem;height:1px;background:var(--teal)}
 .sec-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
-.sec-subtitle{color:var(--text2);margin-top:.8rem;font-size:.98rem;max-width:540px}
+.sec-subtitle{color:var(--text2);margin-top:.8rem;font-size:.96rem;max-width:560px}
+/* ── ABOUT ── */
 #about{padding:7rem 0}
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start}
-.about-text p{color:var(--text2);font-size:.97rem;line-height:1.9;margin-bottom:1.2rem}
+.about-text p{color:var(--text2);font-size:.96rem;line-height:1.9;margin-bottom:1.2rem}
 .about-text p strong{color:var(--text)}
 .about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
 .tag{font-family:var(--font-mono);font-size:.72rem;padding:.3rem .8rem;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;letter-spacing:.05em}
 .about-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:1.8rem}
-.about-card-title{font-family:var(--font-mono);font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.2rem}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.about-card-title{font-family:var(--font-mono);font-size:.73rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.2rem}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.87rem}
 .info-row:last-child{border-bottom:none}
-.info-label{color:var(--text3);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.05em}
+.info-label{color:var(--text3);font-family:var(--font-mono);font-size:.75rem;letter-spacing:.05em}
 .info-val{color:var(--text);text-align:right}
 .info-val a{color:var(--teal);text-decoration:none}
 .info-val a:hover{text-decoration:underline}
 .avail-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--teal);margin-right:.4rem;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+/* ── EXPERTISE DOMAINS ── */
+#domains{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.domains-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.domain-card{background:var(--bg);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem 1.6rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;cursor:default}
+.domain-card:hover{transform:translateY(-4px)}
+.domain-card.shell{border-top:2px solid var(--teal)}
+.domain-card.ai{border-top:2px solid var(--amber)}
+.domain-card.sec{border-top:2px solid var(--red)}
+.domain-card.gfx{border-top:2px solid var(--purple)}
+.domain-card:hover.shell{border-color:var(--teal)}
+.domain-card:hover.ai{border-color:var(--amber)}
+.domain-card:hover.sec{border-color:var(--red)}
+.domain-card:hover.gfx{border-color:var(--purple)}
+.domain-icon{font-size:1.8rem;margin-bottom:1rem}
+.domain-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.domain-card.shell .domain-label{color:var(--teal)}
+.domain-card.ai .domain-label{color:var(--amber)}
+.domain-card.sec .domain-label{color:var(--red)}
+.domain-card.gfx .domain-label{color:var(--purple)}
+.domain-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.01em}
+.domain-card p{color:var(--text2);font-size:.84rem;line-height:1.75;margin-bottom:1.2rem}
+.domain-pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--font-mono);font-size:.64rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.04em}
+.shell .pill{background:var(--teal-glow);border:1px solid var(--teal-dim);color:var(--teal)}
+.ai .pill{background:var(--amber-dim);border:1px solid var(--amber-dim);color:var(--amber)}
+.sec .pill{background:rgba(224,85,85,.12);border:1px solid rgba(224,85,85,.3);color:var(--red)}
+.gfx .pill{background:var(--purple-dim);border:1px solid var(--purple-dim);color:var(--purple)}
+/* ── PROJECTS ── */
 #projects{padding:7rem 0}
 .projects-grid{display:grid;gap:1.5rem}
 .project-featured{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden;transition:border-color .3s}
 .project-featured:hover{border-color:var(--teal-dim)}
-.project-visual{background:var(--bg3);min-height:320px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);position:relative;overflow:hidden}
-.project-visual svg{width:80%;height:80%;opacity:.7}
+.project-visual{background:var(--bg3);min-height:300px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);position:relative;overflow:hidden}
+.project-visual svg{width:80%;height:80%;opacity:.75}
 .project-body{padding:2.5rem}
-.project-number{font-family:var(--font-mono);font-size:.72rem;color:var(--text3);letter-spacing:.15em;margin-bottom:1rem}
+.project-number{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);letter-spacing:.15em;margin-bottom:1rem}
 .project-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.02em}
-.project-desc{color:var(--text2);font-size:.92rem;line-height:1.8;margin-bottom:1.5rem}
+.project-desc{color:var(--text2);font-size:.91rem;line-height:1.8;margin-bottom:1.5rem}
 .project-stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem}
-.stack-badge{font-family:var(--font-mono);font-size:.68rem;padding:.2rem .6rem;border:1px solid var(--border2);color:var(--text3);border-radius:3px;letter-spacing:.05em}
+.stack-badge{font-family:var(--font-mono);font-size:.67rem;padding:.2rem .55rem;border:1px solid var(--border2);color:var(--text3);border-radius:3px;letter-spacing:.04em}
 .project-links{display:flex;gap:1rem}
-.proj-link{font-family:var(--font-mono);font-size:.78rem;color:var(--teal);text-decoration:none;letter-spacing:.05em;display:flex;align-items:center;gap:.3rem;transition:opacity .2s}
+.proj-link{font-family:var(--font-mono);font-size:.76rem;color:var(--teal);text-decoration:none;letter-spacing:.05em;display:flex;align-items:center;gap:.3rem;transition:opacity .2s}
 .proj-link:hover{opacity:.7}
 .proj-link.dim{color:var(--text3)}
 .proj-link.dim:hover{color:var(--text2);opacity:1}
 .projects-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
 .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
 .proj-card:hover{border-color:var(--teal-dim);transform:translateY(-3px)}
-.proj-card-tag{font-family:var(--font-mono);font-size:.68rem;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.proj-card-tag{font-family:var(--font-mono);font-size:.67rem;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
 .proj-card-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.01em}
-.proj-card-desc{color:var(--text2);font-size:.86rem;line-height:1.75;flex:1;margin-bottom:1.3rem}
-.proj-card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:1rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text3)}
+.proj-card-desc{color:var(--text2);font-size:.85rem;line-height:1.75;flex:1;margin-bottom:1.3rem}
+.proj-card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:1rem;font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
 .proj-card-foot a{color:var(--teal);text-decoration:none}
 .proj-card-foot a:hover{text-decoration:underline}
-#blueprint{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+/* ── BLUEPRINT ── */
+#blueprint{padding:7rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .bp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.bp-card{background:var(--bg);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem;position:relative;overflow:hidden}
+.bp-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem;position:relative;overflow:hidden}
 .bp-card::before{content:attr(data-n);position:absolute;top:-1rem;right:1rem;font-family:var(--font-display);font-size:5rem;font-weight:800;color:var(--teal);opacity:.04;line-height:1}
-.bp-status{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.68rem;padding:.25rem .7rem;border-radius:3px;margin-bottom:1.2rem;letter-spacing:.06em}
+.bp-status{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.67rem;padding:.22rem .65rem;border-radius:3px;margin-bottom:1.2rem;letter-spacing:.06em}
 .bp-status.building{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-dim)}
 .bp-status.planned{background:var(--border);color:var(--text3);border:1px solid var(--border2)}
 .bp-status.oss{background:var(--teal-glow);color:var(--teal);border:1px solid var(--teal-dim)}
 .bp-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:.6rem}
-.bp-card p{color:var(--text2);font-size:.88rem;line-height:1.75;margin-bottom:1.2rem}
-.bp-meta{font-family:var(--font-mono);font-size:.72rem;color:var(--text3);border-top:1px solid var(--border);padding-top:1rem;line-height:2}
+.bp-card p{color:var(--text2);font-size:.87rem;line-height:1.75;margin-bottom:1.2rem}
+.bp-meta{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);border-top:1px solid var(--border);padding-top:1rem;line-height:2}
 .bp-meta strong{color:var(--text2)}
-#solid{padding:7rem 0}
+/* ── SOLID ── */
+#solid{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .solid-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:3rem}
 .solid-cell{background:var(--bg2);padding:1.8rem 1.3rem;transition:background .2s}
 .solid-cell:hover{background:var(--bg3)}
 .solid-letter{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:var(--teal);opacity:.6;margin-bottom:.4rem}
-.solid-word{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem}
+.solid-word{font-family:var(--font-mono);font-size:.68rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem}
 .solid-desc{color:var(--text2);font-size:.82rem;line-height:1.7}
-#stack{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+/* ── STACK ── */
+#stack{padding:7rem 0}
 .stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:3rem}
 .stack-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem .9rem;display:flex;align-items:center;gap:.7rem;transition:border-color .2s}
 .stack-item:hover{border-color:var(--teal-dim)}
 .stack-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
-.stack-item span{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);letter-spacing:.04em}
-#kenya{padding:7rem 0}
+.stack-item span{font-family:var(--font-mono);font-size:.74rem;color:var(--text2);letter-spacing:.04em}
+/* ── KENYA ── */
+#kenya{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .kenya-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
-.kenya-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem;display:flex;gap:1.2rem;transition:border-color .2s}
+.kenya-card{background:var(--bg);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem;display:flex;gap:1.2rem;transition:border-color .2s}
 .kenya-card:hover{border-color:var(--teal-dim)}
 .kenya-icon{width:42px;height:42px;border-radius:var(--r);background:var(--teal-glow);border:1px solid var(--teal-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
 .kenya-card h4{font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:.4rem}
 .kenya-card p{color:var(--text2);font-size:.86rem;line-height:1.7}
+/* ── CONTACT ── */
 #contact{padding:8rem 0}
 .contact-inner{max-width:720px;margin:0 auto;text-align:center}
 .contact-inner .sec-tag{justify-content:center}
@@ -184,19 +231,24 @@ section{position:relative;z-index:1}
 .contact-inner .sec-title{margin-bottom:1rem}
 .contact-inner p{color:var(--text2);margin-bottom:2.5rem}
 .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.contact-link{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border:1px solid var(--border2);color:var(--text2);font-family:var(--font-mono);font-size:.8rem;text-decoration:none;border-radius:var(--r);letter-spacing:.06em;transition:all .2s}
+.contact-link{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border:1px solid var(--border2);color:var(--text2);font-family:var(--font-mono);font-size:.78rem;text-decoration:none;border-radius:var(--r);letter-spacing:.06em;transition:all .2s}
 .contact-link:hover{border-color:var(--teal);color:var(--teal)}
 .contact-link.primary{background:var(--teal);border-color:var(--teal);color:var(--bg)}
 .contact-link.primary:hover{filter:brightness(1.1)}
 footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-family:var(--font-mono);font-size:.72rem;color:var(--text3)}
+.footer-copy{font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
 .footer-copy span{color:var(--teal)}
-.footer-right{font-family:var(--font-mono);font-size:.72rem;color:var(--text3)}
+.footer-right{font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
+/* ── ANIMATIONS ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .domains-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
   .hero-terminal{display:none}
@@ -210,6 +262,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
   nav .nav-links{display:none}
 }
 @media(max-width:600px){
+  .domains-grid{grid-template-columns:1fr}
   .stack-grid{grid-template-columns:1fr 1fr}
   .hero-stats{gap:1.5rem}
   .hero-name{font-size:2.4rem}
@@ -221,22 +274,25 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
   <div class="nav-logo">pw<span>.</span>dev</div>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
+    <li><a href="#domains">expertise</a></li>
     <li><a href="#projects">projects</a></li>
     <li><a href="#blueprint">roadmap</a></li>
     <li><a href="#stack">stack</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
-  <a class="nav-cta" href="mailto:[your@email.com]">hire me</a>
+  <a class="nav-cta" href="mailto:jaguar999paw@gmail.com">hire me</a>
 </nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
 <section id="hero">
   <div class="hero-inner">
     <div>
-      <p class="hero-eyebrow">Available for Industrial Attachment</p>
+      <p class="hero-eyebrow">Available for Industrial Attachment · 2026</p>
       <h1 class="hero-name">Paul<br><span class="accent">Wambugu</span></h1>
       <p class="hero-title"><strong>Software Developer</strong> · Systems Engineer<br>AI Integration Specialist</p>
-      <p class="hero-bio">Building production-grade systems from the ground up — from self-hosted VPN infrastructure and 57-tool AI server frameworks to open-source MCP tooling. Based in Chuka, Kenya. 4th-year CS undergraduate.</p>
+      <p class="hero-bio">Building production-grade systems from the ground up — from self-hosted VPN infrastructure and 57-tool AI server frameworks to CTF labs and open-source MCP tooling. Shell wizard. AI integrator. Security researcher. Visual storyteller. Based in Chuka, Kenya.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="https://github.com/jaguar999paw-droid" target="_blank">
+        <a class="btn-primary" href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           GitHub
         </a>
@@ -246,6 +302,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="hero-stats">
         <div><div class="stat-num">6+</div><div class="stat-label">Years coding</div></div>
         <div><div class="stat-num">57</div><div class="stat-label">MCP tools built</div></div>
+        <div><div class="stat-num">4</div><div class="stat-label">Domains mastered</div></div>
         <div><div class="stat-num">4th</div><div class="stat-label">Year undergrad</div></div>
       </div>
     </div>
@@ -258,23 +315,26 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
         <div><span class="t-prompt">❯</span> <span class="t-cmd">whoami</span></div>
         <div class="t-out"><span class="t-key">name</span>: <span class="t-val">"Paul Wambugu"</span></div>
         <div class="t-out"><span class="t-key">alias</span>: <span class="t-val">"kamau"</span></div>
-        <div class="t-out"><span class="t-key">location</span>: <span class="t-val">"Chuka, Kenya"</span></div>
+        <div class="t-out"><span class="t-key">location</span>: <span class="t-val">"Chuka, Kenya 🇰🇪"</span></div>
+        <div class="t-out"><span class="t-key">university</span>: <span class="t-val">"Chuka University · BSc ACS"</span></div>
         <div class="t-out"><span class="t-key">reg_no</span>: <span class="t-val">"EB3/61578/22"</span></div>
-        <div class="t-out"><span class="t-key">os</span>: <span class="t-val">"Ubuntu 24.04 (dizaster)"</span></div>
+        <div class="t-out"><span class="t-key">os</span>: <span class="t-val">"Ubuntu 24.04 LTS (dizaster)"</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cmd">cat skills.json | jq .top</span></div>
-        <div class="t-out"><span class="t-val">["Python", "Node.js", "C++",</span></div>
-        <div class="t-out"><span class="t-val"> "Docker", "MCP", "Linux",</span></div>
-        <div class="t-out"><span class="t-val"> "Tailscale", "Claude API"]</span></div>
+        <div class="t-out"><span class="t-val">["Bash", "Python", "C++", "MCP",</span></div>
+        <div class="t-out"><span class="t-val"> "CyberSec", "AI/Claude", "Docker",</span></div>
+        <div class="t-out"><span class="t-val"> "Inkscape", "Tailscale", "Linux"]</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cmd">echo $STATUS</span></div>
-        <div class="t-out"><span class="t-val">Open to IA · Building · Shipping</span></div>
+        <div class="t-out"><span class="t-val">Open to IA · Building · Shipping 🚀</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cursor"></span></div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
 <section id="about">
   <div class="container">
     <div class="sec-header reveal">
@@ -283,23 +343,25 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>I'm a <strong>self-taught and formally trained software engineer</strong> in my fourth year of undergraduate study, based in Chuka, Tharaka-Nithi, Kenya. I've been writing code for over six years — long before university — which means my skills have been tested against real problems, not just exam papers.</p>
-        <p>My work spans the full depth of modern software engineering: <strong>application development</strong> in Python, JavaScript, and C++; <strong>infrastructure engineering</strong> with Docker, Tailscale, and Caddy; and <strong>AI integration</strong> through Anthropic's Claude API and the Model Context Protocol framework. I build systems I actually use daily.</p>
+        <p>I'm a <strong>self-taught and formally trained software engineer</strong> in my fourth year at <strong>Chuka University</strong>, pursuing a BSc in Applied Computer Science. I've been writing code for over six years — long before university — which means my skills have been tested against real problems, not just exam papers.</p>
+        <p>My work spans four deep domains: <strong>Shell engineering</strong> — writing production Bash scripts that automate entire workflows; <strong>AI integration</strong> — building MCP servers and tooling around Anthropic's Claude API; <strong>CyberSecurity</strong> — running a self-hosted CTF lab with OWASP, DVWA, and WebGoat; and <strong>Graphics & Visual Design</strong> — creating polished assets, diagrams, and UI/UX using Inkscape and CSS craft.</p>
         <p>My flagship open-source project — <strong>ssh-shell-mcp</strong> — is a 57-tool Python MCP server that gives an AI assistant full programmatic control over remote Linux servers via SSH. It's real, it runs in production, and it's the kind of engineering I want to keep doing.</p>
         <p>I'm actively seeking an <strong>Industrial Attachment placement</strong> where I can contribute real engineering work from day one.</p>
         <div class="about-tags">
-          <span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">C++</span>
-          <span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">MCP</span>
-          <span class="tag">Tailscale</span><span class="tag">Caddy</span><span class="tag">CTF</span>
-          <span class="tag">AsyncSSH</span><span class="tag">FastMCP</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Bash / Zsh</span><span class="tag">Python</span><span class="tag">C++</span>
+          <span class="tag">MCP Protocol</span><span class="tag">Claude API</span><span class="tag">Docker</span>
+          <span class="tag">Linux</span><span class="tag">Tailscale</span><span class="tag">Caddy</span>
+          <span class="tag">CTF / OWASP</span><span class="tag">Inkscape</span><span class="tag">PostgreSQL</span>
         </div>
       </div>
       <div class="about-card reveal reveal-delay-1">
         <div class="about-card-title">// identity.json</div>
         <div class="info-row"><span class="info-label">Full Name</span><span class="info-val">Paul Wambugu</span></div>
-        <div class="info-row"><span class="info-label">Handle</span><span class="info-val"><a href="https://github.com/jaguar999paw-droid">@jaguar999paw-droid</a></span></div>
-        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Chuka, Tharaka-Nithi, KE</span></div>
-        <div class="info-row"><span class="info-label">University</span><span class="info-val">[University Name]</span></div>
+        <div class="info-row"><span class="info-label">GitHub</span><span class="info-val"><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">@jaguar999paw-droid</a></span></div>
+        <div class="info-row"><span class="info-label">Email</span><span class="info-val"><a href="mailto:jaguar999paw@gmail.com">jaguar999paw@gmail.com</a></span></div>
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Chuka, Tharaka-Nithi, KE 🇰🇪</span></div>
+        <div class="info-row"><span class="info-label">University</span><span class="info-val">Chuka University</span></div>
+        <div class="info-row"><span class="info-label">Programme</span><span class="info-val">BSc Applied Computer Science</span></div>
         <div class="info-row"><span class="info-label">Reg. No</span><span class="info-val">EB3/61578/22</span></div>
         <div class="info-row"><span class="info-label">Year</span><span class="info-val">4th Year · 2022–Present</span></div>
         <div class="info-row"><span class="info-label">Daily Machine</span><span class="info-val">dizaster · Ubuntu 24.04</span></div>
@@ -308,10 +370,65 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ DOMAINS ═══════════════════ -->
+<section id="domains">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">02 / Expertise Domains</div>
+      <h2 class="sec-title">Four Deep Specialties</h2>
+      <p class="sec-subtitle">Not a generalist who dabbles — these are the four areas I go deep in, every day.</p>
+    </div>
+    <div class="domains-grid">
+      <div class="domain-card shell reveal">
+        <div class="domain-icon">🐚</div>
+        <div class="domain-label">Shell · Systems</div>
+        <h3>Bash / Shell Engineering</h3>
+        <p>Writing production-grade Bash and Zsh scripts that replace entire workflows. Cron jobs, pipe chains, signal handling, process management, and self-healing daemon scripts. If it runs on Linux, I can automate it.</p>
+        <div class="domain-pills">
+          <span class="pill">Bash 5</span><span class="pill">Zsh</span><span class="pill">cron</span>
+          <span class="pill">tmux</span><span class="pill">awk/sed</span><span class="pill">systemd</span>
+        </div>
+      </div>
+      <div class="domain-card ai reveal reveal-delay-1">
+        <div class="domain-icon">🤖</div>
+        <div class="domain-label">AI · Agentic</div>
+        <h3>AI Integration & MCP</h3>
+        <p>Building AI-powered systems using Anthropic's Claude API and the Model Context Protocol. My ssh-shell-mcp gives Claude full control over remote Linux servers — 57 structured tools, production-deployed.</p>
+        <div class="domain-pills">
+          <span class="pill">Claude API</span><span class="pill">MCP</span><span class="pill">FastMCP</span>
+          <span class="pill">AsyncSSH</span><span class="pill">Python</span><span class="pill">Agents</span>
+        </div>
+      </div>
+      <div class="domain-card sec reveal reveal-delay-2">
+        <div class="domain-icon">🔐</div>
+        <div class="domain-label">Security · CTF</div>
+        <h3>CyberSecurity</h3>
+        <p>Running a self-hosted CTF lab (OWASP Juice Shop, DVWA, WebGoat) on an isolated Docker bridge, accessible via Tailscale mesh only. Active practice in web exploitation, privilege escalation, and network analysis.</p>
+        <div class="domain-pills">
+          <span class="pill">Kali Linux</span><span class="pill">OWASP</span><span class="pill">Burp Suite</span>
+          <span class="pill">nmap</span><span class="pill">Wireshark</span><span class="pill">CTF</span>
+        </div>
+      </div>
+      <div class="domain-card gfx reveal reveal-delay-3">
+        <div class="domain-icon">🎨</div>
+        <div class="domain-label">Graphics · Design</div>
+        <h3>Graphics & Visual Design</h3>
+        <p>Creating polished visual assets — vector illustrations, UI mockups, system architecture diagrams, logos, and printed materials. Design thinking applied to technical communication: making complexity beautiful.</p>
+        <div class="domain-pills">
+          <span class="pill">Inkscape</span><span class="pill">GIMP</span><span class="pill">SVG</span>
+          <span class="pill">CSS Art</span><span class="pill">UI/UX</span><span class="pill">Diagrams</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROJECTS ═══════════════════ -->
 <section id="projects">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">02 / Projects</div>
+      <div class="sec-tag">03 / Projects</div>
       <h2 class="sec-title">What I've Built</h2>
       <p class="sec-subtitle">Real systems. Real problems. Real code. Not tutorials.</p>
     </div>
@@ -321,62 +438,64 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
           <svg viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="20" y="20" width="260" height="160" rx="8" stroke="#00c9a7" stroke-width="1" stroke-dasharray="4 4" opacity=".3"/>
             <rect x="40" y="40" width="80" height="50" rx="4" fill="#141820" stroke="#00c9a7" stroke-width=".5"/>
-            <text x="80" y="68" text-anchor="middle" fill="#00c9a7" font-family="monospace" font-size="9" opacity=".8">SERVER</text>
-            <rect x="180" y="40" width="80" height="50" rx="4" fill="#141820" stroke="#00c9a7" stroke-width=".5"/>
-            <text x="220" y="68" text-anchor="middle" fill="#00c9a7" font-family="monospace" font-size="9" opacity=".8">AI AGENT</text>
-            <line x1="120" y1="65" x2="178" y2="65" stroke="#00c9a7" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
-            <polygon points="175,61 181,65 175,69" fill="#00c9a7" opacity=".5"/>
+            <text x="80" y="68" text-anchor="middle" fill="#00c9a7" font-family="monospace" font-size="9" opacity=".8">LINUX SERVER</text>
+            <rect x="180" y="40" width="80" height="50" rx="4" fill="#141820" stroke="#f5a623" stroke-width=".5"/>
+            <text x="220" y="68" text-anchor="middle" fill="#f5a623" font-family="monospace" font-size="9" opacity=".8">AI AGENT</text>
+            <line x1="120" y1="65" x2="178" y2="65" stroke="#00c9a7" stroke-width="1" stroke-dasharray="3 2" opacity=".6"/>
+            <polygon points="175,61 181,65 175,69" fill="#00c9a7" opacity=".6"/>
             <rect x="110" y="120" width="80" height="50" rx="4" fill="#141820" stroke="#f5a623" stroke-width=".5"/>
-            <text x="150" y="148" text-anchor="middle" fill="#f5a623" font-family="monospace" font-size="9" opacity=".8">MCP TOOLS</text>
+            <text x="150" y="142" text-anchor="middle" fill="#f5a623" font-family="monospace" font-size="9" opacity=".8">MCP SERVER</text>
+            <text x="150" y="155" text-anchor="middle" fill="#f5a623" font-family="monospace" font-size="8" opacity=".5">57 tools</text>
             <line x1="80" y1="90" x2="130" y2="118" stroke="#00c9a7" stroke-width="1" opacity=".3"/>
             <line x1="220" y1="90" x2="175" y2="118" stroke="#00c9a7" stroke-width="1" opacity=".3"/>
-            <text x="150" y="210" text-anchor="middle" fill="#4d5668" font-family="monospace" font-size="8">57 tools · python · asyncssh</text>
+            <text x="150" y="210" text-anchor="middle" fill="#4d5668" font-family="monospace" font-size="8">python · asyncssh · fastmcp</text>
           </svg>
         </div>
         <div class="project-body">
-          <div class="project-number">// project_01 · flagship</div>
+          <div class="project-number">// project_01 · flagship · AI + Shell</div>
           <h3 class="project-title">ssh-shell-mcp</h3>
-          <p class="project-desc">A production-grade Model Context Protocol server giving an AI assistant 57+ structured tools for remote Linux server management — one-off commands, persistent sessions, fleet orchestration, tunnelling, SFTP, and tmux. Built from scratch. Used daily.</p>
+          <p class="project-desc">A production-grade MCP server giving an AI assistant 57+ structured tools for remote Linux server management — one-off commands, persistent sessions, fleet orchestration, SSH tunnelling, SFTP, tmux, playbooks, and Tailscale integration. Built from scratch. Used daily. Open source.</p>
           <div class="project-stack">
             <span class="stack-badge">Python</span><span class="stack-badge">AsyncSSH</span>
-            <span class="stack-badge">FastMCP</span><span class="stack-badge">MCP Protocol</span><span class="stack-badge">Linux</span>
+            <span class="stack-badge">FastMCP</span><span class="stack-badge">MCP Protocol</span><span class="stack-badge">Linux</span><span class="stack-badge">Tailscale</span>
           </div>
           <div class="project-links">
-            <a class="proj-link" href="https://github.com/jaguar999paw-droid" target="_blank">↗ GitHub</a>
-            <a class="proj-link dim" href="#">Read Case Study →</a>
+            <a class="proj-link" href="https://github.com/jaguar999paw-droid/ssh-shell-mcp" target="_blank" rel="noopener">↗ GitHub</a>
           </div>
         </div>
       </div>
       <div class="projects-secondary">
         <div class="proj-card reveal reveal-delay-1">
-          <div class="proj-card-tag">Infrastructure</div>
-          <h3 class="proj-card-title">Headscale VPN Stack</h3>
-          <p class="proj-card-desc">Self-hosted Tailscale control plane with Caddy reverse proxy, DNS-01 TLS via DuckDNS, and Cloudflare Quick Tunnel as a resilient ISP-bypass gateway. Includes ACL policy management for Policy v2.</p>
-          <div class="project-stack"><span class="stack-badge">Headscale 0.28</span><span class="stack-badge">Docker Compose</span><span class="stack-badge">Caddy</span><span class="stack-badge">Cloudflare</span></div>
-          <div class="proj-card-foot"><span>Private mesh network</span><a href="#">Details →</a></div>
+          <div class="proj-card-tag">Security Lab · CyberSec</div>
+          <h3 class="proj-card-title">CTF Practice Lab</h3>
+          <p class="proj-card-desc">Containerised offensive-security environment: OWASP Juice Shop, DVWA, and WebGoat behind a Caddy reverse proxy on an isolated Docker bridge network, accessible via Tailscale mesh only. Covers web exploitation, SQLi, XSS, and privilege escalation.</p>
+          <div class="project-stack"><span class="stack-badge">Kali Linux</span><span class="stack-badge">Docker</span><span class="stack-badge">OWASP</span><span class="stack-badge">Burp Suite</span></div>
+          <div class="proj-card-foot"><span>Isolated · CTF-ready</span><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">GitHub →</a></div>
         </div>
         <div class="proj-card reveal reveal-delay-2">
-          <div class="proj-card-tag">Security Lab</div>
-          <h3 class="proj-card-title">CTF Practice Lab</h3>
-          <p class="proj-card-desc">Containerised offensive-security environment: OWASP Juice Shop, DVWA, and WebGoat behind a Caddy reverse proxy on a Docker bridge network, accessible via Tailscale mesh IP only.</p>
-          <div class="project-stack"><span class="stack-badge">Kali Linux</span><span class="stack-badge">Docker</span><span class="stack-badge">OWASP</span><span class="stack-badge">WebGoat</span></div>
-          <div class="proj-card-foot"><span>Isolated · CTF-ready</span><a href="#">Details →</a></div>
+          <div class="proj-card-tag">Infrastructure · Shell</div>
+          <h3 class="proj-card-title">Headscale VPN Stack</h3>
+          <p class="proj-card-desc">Self-hosted Tailscale control plane with Caddy reverse proxy, DNS-01 TLS via DuckDNS, and Cloudflare Quick Tunnel as resilient ISP-bypass gateway. Includes a custom Bash provisioning script and ACL policy management for Policy v2.</p>
+          <div class="project-stack"><span class="stack-badge">Headscale 0.28</span><span class="stack-badge">Docker Compose</span><span class="stack-badge">Caddy</span><span class="stack-badge">Bash</span></div>
+          <div class="proj-card-foot"><span>Private mesh network</span><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">Details →</a></div>
         </div>
         <div class="proj-card reveal reveal-delay-3">
-          <div class="proj-card-tag">Academic · C++</div>
+          <div class="proj-card-tag">Academic · C++ · Algorithms</div>
           <h3 class="proj-card-title">Spaghetti Sort</h3>
           <p class="proj-card-desc">Multi-threaded simulation of the spaghetti sort algorithm in C++ — demonstrating concurrent programming, thread synchronisation, and unconventional algorithm design. Public on GitHub.</p>
-          <div class="project-stack"><span class="stack-badge">C++</span><span class="stack-badge">Threading</span><span class="stack-badge">Algorithms</span></div>
-          <div class="proj-card-foot"><span>github.com/jaguar999paw-droid</span><a href="https://github.com/jaguar999paw-droid/spaghetti-sort" target="_blank">View →</a></div>
+          <div class="project-stack"><span class="stack-badge">C++17</span><span class="stack-badge">Threading</span><span class="stack-badge">Algorithms</span></div>
+          <div class="proj-card-foot"><span>Open source</span><a href="https://github.com/jaguar999paw-droid/spaghetti-sort" target="_blank" rel="noopener">View →</a></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ BLUEPRINT ═══════════════════ -->
 <section id="blueprint">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">03 / Roadmap — Rule of Three</div>
+      <div class="sec-tag">04 / Roadmap</div>
       <h2 class="sec-title">2026 Portfolio Blueprint</h2>
       <p class="sec-subtitle">Three projects in active development — designed to prove full-stack, infrastructure, and open-source competency for both Kenyan and global markets.</p>
     </div>
@@ -384,7 +503,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="bp-card reveal" data-n="01">
         <div class="bp-status building">● In Development</div>
         <h3>PesaFlow</h3>
-        <p>A real-world fintech application integrating the Safaricom Daraja API for M-Pesa STK Push, C2B, and B2C payment flows. Includes transaction ledger, SMS notifications via Africa's Talking, and an offline-first PWA layer for low-bandwidth areas.</p>
+        <p>A real-world fintech application integrating the Safaricom Daraja API for M-Pesa STK Push, C2B, and B2C payment flows. Includes transaction ledger, SMS notifications via Africa's Talking, and an offline-first PWA for low-bandwidth areas.</p>
         <div class="bp-meta">
           <strong>Stack:</strong> Next.js · Node.js · PostgreSQL · Daraja API · AT SMS<br>
           <strong>Pattern:</strong> Strategy (payment gateway) · Repository (data layer)<br>
@@ -404,7 +523,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="bp-card reveal reveal-delay-2" data-n="03">
         <div class="bp-status oss">⬡ Open Source</div>
         <h3>daraja-sdk</h3>
-        <p>A typed, modular Node.js/Python SDK for the Safaricom Daraja API — the M-Pesa integration layer that every Kenyan developer has had to re-implement from scratch. Designed with full ISP compliance, retry logic, and webhook signature verification.</p>
+        <p>A typed, modular Node.js/Python SDK for the Safaricom Daraja API — the M-Pesa integration layer every Kenyan developer has had to re-implement from scratch. Full ISP compliance, retry logic, and webhook signature verification.</p>
         <div class="bp-meta">
           <strong>Stack:</strong> TypeScript · Python · npm · PyPI · GitHub Actions<br>
           <strong>Pattern:</strong> Facade (Daraja complexity) · OCP (payment methods)<br>
@@ -414,10 +533,12 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ SOLID ═══════════════════ -->
 <section id="solid">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">04 / Engineering Philosophy</div>
+      <div class="sec-tag">05 / Engineering Philosophy</div>
       <h2 class="sec-title">SOLID by Design</h2>
       <p class="sec-subtitle">Every project in this portfolio is architected around these principles — not as theory, but as working code decisions.</p>
     </div>
@@ -450,17 +571,21 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ STACK ═══════════════════ -->
 <section id="stack">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">05 / Tech Stack</div>
+      <div class="sec-tag">06 / Tech Stack</div>
       <h2 class="sec-title">Tools of the Trade</h2>
     </div>
     <div class="stack-grid reveal">
+      <div class="stack-item"><div class="stack-dot"></div><span>Bash / Zsh</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Python 3.12</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Node.js / ESM</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>C++17</span></div>
-      <div class="stack-item"><div class="stack-dot"></div><span>TypeScript</span></div>
+      <div class="stack-item"><div class="stack-dot"></div><span>PHP 8</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>TypeScript</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Next.js</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Go (learning)</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Docker</span></div>
@@ -474,18 +599,24 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="stack-item"><div class="stack-dot"></div><span>FastMCP</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>AsyncSSH</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Git · GitHub</span></div>
-      <div class="stack-item"><div class="stack-dot"></div><span>Bash scripting</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>Kali Linux</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>Burp Suite</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>nmap · Wireshark</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--purple)"></div><span>Inkscape</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--purple)"></div><span>GIMP</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Redis</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Grafana</span></div>
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ KENYA ═══════════════════ -->
 <section id="kenya">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">06 / Local Edge</div>
+      <div class="sec-tag">07 / Local Edge</div>
       <h2 class="sec-title">Built for Kenya</h2>
-      <p class="sec-subtitle">Understanding the local tech ecosystem is an advantage. These are the competencies that matter for Kenyan engineering roles — from Safaricom to early-stage startups.</p>
+      <p class="sec-subtitle">Understanding the local tech ecosystem is a competitive advantage. These are the competencies that matter for Kenyan engineering roles — from Safaricom to early-stage startups.</p>
     </div>
     <div class="kenya-grid">
       <div class="kenya-card reveal">
@@ -519,40 +650,52 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
 <section id="contact">
   <div class="container">
     <div class="contact-inner">
-      <div class="sec-tag">07 / Contact</div>
+      <div class="sec-tag">08 / Contact</div>
       <h2 class="sec-title reveal">Let's build something.<br>Or talk about it first.</h2>
       <p class="reveal reveal-delay-1">I'm actively looking for Industrial Attachment opportunities and entry-level engineering roles in Kenya and remotely. If you're working on something interesting — reach out.</p>
       <div class="contact-links reveal reveal-delay-2">
-        <a class="contact-link primary" href="mailto:[your@email.com]">Email Me</a>
-        <a class="contact-link" href="https://github.com/jaguar999paw-droid" target="_blank">GitHub</a>
-        <a class="contact-link" href="#" target="_blank">LinkedIn</a>
-        <a class="contact-link" href="#" download>Download CV</a>
+        <a class="contact-link primary" href="mailto:jaguar999paw@gmail.com">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          jaguar999paw@gmail.com
+        </a>
+        <a class="contact-link" href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/paul-wambugu" target="_blank" rel="noopener">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
       </div>
     </div>
   </div>
 </section>
+
 <footer>
-  <div class="footer-copy">© 2026 <span>Paul Wambugu</span> · Chuka, Kenya · Built with intention.</div>
+  <div class="footer-copy">© 2026 <span>Paul Wambugu</span> · Chuka, Kenya 🇰🇪 · BSc Applied Computer Science · Chuka University</div>
   <div class="footer-right">jaguar999paw-droid.github.io</div>
 </footer>
+
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      e.target.querySelectorAll('.skill-level-fill').forEach(f => f.style.transform = 'scaleX(1)');
     }
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal, .skill-card').forEach(el => observer.observe(el));
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
   navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--teal)' : ''; });
 });
 </script>
