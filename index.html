@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Paul Wambugu — Software Engineer · AI · CyberSec · Shell · Graphics</title>
-<meta name="description" content="Paul Wambugu — Software Developer, Systems Engineer & AI Integration Specialist based in Chuka, Kenya. Expert in Bash scripting, AI/MCP tooling, CyberSecurity, and Graphics Design."/>
+<title>Paul Wambugu — Software Engineer · Security · Systems · Shell</title>
+<meta name="description" content="Paul Wambugu — Software Developer and Security Practitioner based in Kenya. Systems engineering, offensive security tooling, and infrastructure automation."/>
 <meta name="author" content="Paul Wambugu"/>
-<meta name="keywords" content="Paul Wambugu, software engineer Kenya, AI developer, MCP tools, cybersecurity, bash scripting, Chuka University, industrial attachment Kenya"/>
-<meta property="og:title" content="Paul Wambugu — Software Engineer · AI · CyberSec · Shell"/>
-<meta property="og:description" content="Building production-grade systems — from AI agent tooling to self-hosted security labs. Shell wizard. AI integrator. Security researcher. Visual storyteller."/>
+<meta name="keywords" content="Paul Wambugu, software engineer Kenya, cybersecurity, penetration testing, CTF, bash scripting, Chuka University, industrial attachment Kenya, security tooling"/>
+<meta property="og:title" content="Paul Wambugu — Software Engineer · Security · Systems"/>
+<meta property="og:description" content="Building security tooling, systems infrastructure, and open-source developer tools from Kenya."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://jaguar999paw-droid.github.io"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Paul Wambugu — Software Engineer"/>
-<meta name="twitter:description" content="Shell · AI · CyberSec · Graphics. Building real systems from Chuka, Kenya."/>
+<meta name="twitter:description" content="Security · Systems · Shell. Building real infrastructure from Kenya."/>
 <link rel="canonical" href="https://jaguar999paw-droid.github.io"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -31,6 +31,8 @@
   --amber:#f5a623;
   --amber-dim:#f5a62330;
   --red:#e05555;
+  --red-dim:#e0555520;
+  --red-glow:#e0555512;
   --purple:#a78bfa;
   --purple-dim:#a78bfa30;
   --blue:#38bdf8;
@@ -108,12 +110,15 @@ section{position:relative;z-index:1}
 .terminal-body{padding:1.4rem 1.2rem;font-size:.78rem;line-height:2.1}
 .t-prompt{color:var(--teal)}.t-cmd{color:var(--text)}.t-comment{color:var(--text3)}
 .t-out{color:var(--text2);padding-left:1rem}.t-key{color:var(--amber)}.t-val{color:var(--teal)}
+.t-red{color:var(--red)}
 .t-cursor{display:inline-block;width:8px;height:13px;background:var(--teal);vertical-align:middle;animation:blink .9s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 /* ── SECTION HEADERS ── */
 .sec-header{margin-bottom:3.5rem}
 .sec-tag{font-family:var(--font-mono);font-size:.73rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
 .sec-tag::before{content:'';width:1.5rem;height:1px;background:var(--teal)}
+.sec-tag.red{color:var(--red)}
+.sec-tag.red::before{background:var(--red)}
 .sec-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
 .sec-subtitle{color:var(--text2);margin-top:.8rem;font-size:.96rem;max-width:560px}
 /* ── ABOUT ── */
@@ -181,12 +186,35 @@ section{position:relative;z-index:1}
 .projects-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
 .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
 .proj-card:hover{border-color:var(--teal-dim);transform:translateY(-3px)}
+.proj-card.sec-card:hover{border-color:rgba(224,85,85,.3)}
 .proj-card-tag{font-family:var(--font-mono);font-size:.67rem;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.proj-card-tag.red{color:var(--red)}
 .proj-card-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.01em}
 .proj-card-desc{color:var(--text2);font-size:.85rem;line-height:1.75;flex:1;margin-bottom:1.3rem}
 .proj-card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:1rem;font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
 .proj-card-foot a{color:var(--teal);text-decoration:none}
 .proj-card-foot a:hover{text-decoration:underline}
+/* ── SECURITY SECTION ── */
+#security{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sec-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:start}
+.sec-body p{color:var(--text2);font-size:.96rem;line-height:1.9;margin-bottom:1.2rem}
+.sec-body p strong{color:var(--text)}
+.attack-table{width:100%;border-collapse:collapse;margin-top:2rem;font-family:var(--font-mono);font-size:.74rem}
+.attack-table th{text-align:left;padding:.5rem .8rem;color:var(--text3);border-bottom:1px solid var(--border);letter-spacing:.08em}
+.attack-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border);color:var(--text2)}
+.attack-table td:first-child{color:var(--text)}
+.attack-table tr:last-child td{border-bottom:none}
+.cov-full{color:var(--teal)}
+.cov-part{color:var(--amber)}
+.servers-grid{display:grid;gap:.7rem}
+.server-row{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem}
+.server-row:hover{border-color:rgba(224,85,85,.25)}
+.server-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.server-name{font-family:var(--font-mono);font-size:.78rem;color:var(--text);flex:1}
+.server-tools{font-family:var(--font-mono);font-size:.68rem;color:var(--text3)}
+.server-cat{font-family:var(--font-mono);font-size:.66rem;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
+.toolbox-note{margin-top:1.5rem;background:var(--red-glow);border:1px solid rgba(224,85,85,.2);border-radius:var(--r);padding:1.1rem 1.3rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text2);line-height:1.8}
+.toolbox-note strong{color:var(--red)}
 /* ── BLUEPRINT ── */
 #blueprint{padding:7rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .bp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
@@ -248,6 +276,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
   .domains-grid{grid-template-columns:repeat(2,1fr)}
+  .sec-grid{grid-template-columns:1fr}
 }
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
@@ -276,7 +305,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     <li><a href="#about">about</a></li>
     <li><a href="#domains">expertise</a></li>
     <li><a href="#projects">projects</a></li>
-    <li><a href="#blueprint">roadmap</a></li>
+    <li><a href="#security">security</a></li>
     <li><a href="#stack">stack</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
@@ -289,44 +318,39 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     <div>
       <p class="hero-eyebrow">Available for Industrial Attachment · 2026</p>
       <h1 class="hero-name">Paul<br><span class="accent">Wambugu</span></h1>
-      <p class="hero-title"><strong>Software Developer</strong> · Systems Engineer<br>AI Integration Specialist</p>
-      <p class="hero-bio">Building production-grade systems from the ground up — from self-hosted VPN infrastructure and 57-tool AI server frameworks to CTF labs and open-source MCP tooling. Shell wizard. AI integrator. Security researcher. Visual storyteller. Based in Chuka, Kenya.</p>
+      <p class="hero-title"><strong>Software Developer</strong> · Systems Engineer<br>Security Practitioner</p>
+      <p class="hero-bio">Building security tooling, systems infrastructure, and open-source developer libraries from Kenya. I run a full offensive security lab on real hardware, maintain a cluster of purpose-built security MCP servers, and ship production code across Python, JavaScript, and C++.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           GitHub
         </a>
-        <a class="btn-outline" href="#projects">View Projects</a>
+        <a class="btn-outline" href="#security">Security Work</a>
         <a class="btn-outline" href="#contact">Get in Touch</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">6+</div><div class="stat-label">Years coding</div></div>
-        <div><div class="stat-num">57</div><div class="stat-label">MCP tools built</div></div>
-        <div><div class="stat-num">4</div><div class="stat-label">Domains mastered</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">Security servers</div></div>
+        <div><div class="stat-num">155+</div><div class="stat-label">Security tools</div></div>
+        <div><div class="stat-num">11</div><div class="stat-label">MITRE tactics</div></div>
         <div><div class="stat-num">4th</div><div class="stat-label">Year undergrad</div></div>
       </div>
     </div>
     <div class="hero-terminal">
       <div class="terminal-bar">
         <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-        <span>~/paul-wambugu — zsh</span>
+        <span>~/toolBOX — zsh</span>
       </div>
       <div class="terminal-body">
-        <div><span class="t-prompt">❯</span> <span class="t-cmd">whoami</span></div>
-        <div class="t-out"><span class="t-key">name</span>: <span class="t-val">"Paul Wambugu"</span></div>
-        <div class="t-out"><span class="t-key">alias</span>: <span class="t-val">"kamau"</span></div>
-        <div class="t-out"><span class="t-key">location</span>: <span class="t-val">"Chuka, Kenya 🇰🇪"</span></div>
-        <div class="t-out"><span class="t-key">university</span>: <span class="t-val">"Chuka University · BSc ACS"</span></div>
-        <div class="t-out"><span class="t-key">reg_no</span>: <span class="t-val">"EB3/61578/22"</span></div>
-        <div class="t-out"><span class="t-key">os</span>: <span class="t-val">"Ubuntu 24.04 LTS (dizaster)"</span></div>
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">ls toolBOX/</span></div>
+        <div class="t-out"><span class="t-val">kali-mcp/</span>  <span class="t-val">web-mcp/</span>   <span class="t-val">recon-mcp/</span></div>
+        <div class="t-out"><span class="t-val">forensics-mcp/</span> <span class="t-val">pwn-mcp/</span></div>
+        <div class="t-out"><span class="t-val">crypto-mcp/</span> <span class="t-val">rev-mcp/</span>   <span class="t-val">ops-mcp/</span></div>
         <br/>
-        <div><span class="t-prompt">❯</span> <span class="t-cmd">cat skills.json | jq .top</span></div>
-        <div class="t-out"><span class="t-val">["Bash", "Python", "C++", "MCP",</span></div>
-        <div class="t-out"><span class="t-val"> "CyberSec", "AI/Claude", "Docker",</span></div>
-        <div class="t-out"><span class="t-val"> "Inkscape", "Tailscale", "Linux"]</span></div>
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">docker ps --format "{{.Names}}"</span></div>
+        <div class="t-out"><span class="t-red">KALI_CTF</span> <span class="t-comment"># running</span></div>
         <br/>
-        <div><span class="t-prompt">❯</span> <span class="t-cmd">echo $STATUS</span></div>
-        <div class="t-out"><span class="t-val">Open to IA · Building · Shipping 🚀</span></div>
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">echo $MITRE_COVERAGE</span></div>
+        <div class="t-out"><span class="t-val">11/13 tactics · enterprise-grade</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cursor"></span></div>
       </div>
@@ -343,28 +367,27 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>I'm a <strong>self-taught and formally trained software engineer</strong> in my fourth year at <strong>Chuka University</strong>, pursuing a BSc in Applied Computer Science. I've been writing code for over six years — long before university — which means my skills have been tested against real problems, not just exam papers.</p>
-        <p>My work spans four deep domains: <strong>Shell engineering</strong> — writing production Bash scripts that automate entire workflows; <strong>AI integration</strong> — building MCP servers and tooling around Anthropic's Claude API; <strong>CyberSecurity</strong> — running a self-hosted CTF lab with OWASP, DVWA, and WebGoat; and <strong>Graphics & Visual Design</strong> — creating polished assets, diagrams, and UI/UX using Inkscape and CSS craft.</p>
-        <p>My flagship open-source project — <strong>ssh-shell-mcp</strong> — is a 57-tool Python MCP server that gives an AI assistant full programmatic control over remote Linux servers via SSH. It's real, it runs in production, and it's the kind of engineering I want to keep doing.</p>
-        <p>I'm actively seeking an <strong>Industrial Attachment placement</strong> where I can contribute real engineering work from day one.</p>
+        <p>I'm a software developer and security practitioner in my fourth year at <strong>Chuka University</strong>, pursuing a BSc in Applied Computer Science. I've been writing code for over six years across systems programming, backend engineering, infrastructure automation, and offensive security tooling.</p>
+        <p>My security work is grounded in a real lab — a Kali Linux container wired to a cluster of eight discipline-specific security servers covering reconnaissance, web exploitation, binary analysis, cryptography, forensics, and reverse engineering. The tooling is used to compete in CTF challenges and develop practical skill across the MITRE ATT&CK framework.</p>
+        <p>My open-source work includes <strong>ssh-shell-mcp</strong> — a 57-tool Python SSH orchestration library — and <strong>headscale-mcp</strong>, a server for managing self-hosted VPN infrastructure. Both are production-deployed and actively maintained.</p>
+        <p>I'm looking for an <strong>Industrial Attachment</strong> placement where I can contribute immediately — in security, systems, backend engineering, or infrastructure.</p>
         <div class="about-tags">
-          <span class="tag">Bash / Zsh</span><span class="tag">Python</span><span class="tag">C++</span>
-          <span class="tag">MCP Protocol</span><span class="tag">Claude API</span><span class="tag">Docker</span>
-          <span class="tag">Linux</span><span class="tag">Tailscale</span><span class="tag">Caddy</span>
-          <span class="tag">CTF / OWASP</span><span class="tag">Inkscape</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">C++</span>
+          <span class="tag">JavaScript</span><span class="tag">Docker</span><span class="tag">Linux</span>
+          <span class="tag">Kali Linux</span><span class="tag">CTF</span><span class="tag">Tailscale</span>
+          <span class="tag">OWASP</span><span class="tag">nmap</span><span class="tag">Burp Suite</span>
         </div>
       </div>
       <div class="about-card reveal reveal-delay-1">
         <div class="about-card-title">// identity.json</div>
-        <div class="info-row"><span class="info-label">Full Name</span><span class="info-val">Paul Wambugu</span></div>
+        <div class="info-row"><span class="info-label">Name</span><span class="info-val">Paul Wambugu</span></div>
         <div class="info-row"><span class="info-label">GitHub</span><span class="info-val"><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">@jaguar999paw-droid</a></span></div>
         <div class="info-row"><span class="info-label">Email</span><span class="info-val"><a href="mailto:jaguar999paw@gmail.com">jaguar999paw@gmail.com</a></span></div>
-        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Chuka, Tharaka-Nithi, KE 🇰🇪</span></div>
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Kenya 🇰🇪</span></div>
         <div class="info-row"><span class="info-label">University</span><span class="info-val">Chuka University</span></div>
         <div class="info-row"><span class="info-label">Programme</span><span class="info-val">BSc Applied Computer Science</span></div>
-        <div class="info-row"><span class="info-label">Reg. No</span><span class="info-val">EB3/61578/22</span></div>
         <div class="info-row"><span class="info-label">Year</span><span class="info-val">4th Year · 2022–Present</span></div>
-        <div class="info-row"><span class="info-label">Daily Machine</span><span class="info-val">dizaster · Ubuntu 24.04</span></div>
+        <div class="info-row"><span class="info-label">Daily Machine</span><span class="info-val">Ubuntu 24.04 LTS</span></div>
         <div class="info-row"><span class="info-label">Status</span><span class="info-val"><span class="avail-dot"></span>Open to IA / Roles</span></div>
       </div>
     </div>
@@ -384,37 +407,37 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
         <div class="domain-icon">🐚</div>
         <div class="domain-label">Shell · Systems</div>
         <h3>Bash / Shell Engineering</h3>
-        <p>Writing production-grade Bash and Zsh scripts that replace entire workflows. Cron jobs, pipe chains, signal handling, process management, and self-healing daemon scripts. If it runs on Linux, I can automate it.</p>
+        <p>Production-grade Bash and Zsh scripting — cron pipelines, daemon scripts, signal handling, process orchestration. If it runs on Linux, I can automate it. Shell is my first language.</p>
         <div class="domain-pills">
           <span class="pill">Bash 5</span><span class="pill">Zsh</span><span class="pill">cron</span>
           <span class="pill">tmux</span><span class="pill">awk/sed</span><span class="pill">systemd</span>
         </div>
       </div>
       <div class="domain-card ai reveal reveal-delay-1">
-        <div class="domain-icon">🤖</div>
-        <div class="domain-label">AI · Agentic</div>
-        <h3>AI Integration & MCP</h3>
-        <p>Building AI-powered systems using Anthropic's Claude API and the Model Context Protocol. My ssh-shell-mcp gives Claude full control over remote Linux servers — 57 structured tools, production-deployed.</p>
+        <div class="domain-icon">⚙️</div>
+        <div class="domain-label">Infrastructure · Tooling</div>
+        <h3>Systems & Infrastructure</h3>
+        <p>Building developer tools and infrastructure that runs in production. SSH orchestration libraries, self-hosted VPN control planes, media processing pipelines, and communications servers.</p>
         <div class="domain-pills">
-          <span class="pill">Claude API</span><span class="pill">MCP</span><span class="pill">FastMCP</span>
-          <span class="pill">AsyncSSH</span><span class="pill">Python</span><span class="pill">Agents</span>
+          <span class="pill">Python</span><span class="pill">Node.js</span><span class="pill">Docker</span>
+          <span class="pill">Tailscale</span><span class="pill">FastMCP</span><span class="pill">AsyncSSH</span>
         </div>
       </div>
       <div class="domain-card sec reveal reveal-delay-2">
         <div class="domain-icon">🔐</div>
         <div class="domain-label">Security · CTF</div>
-        <h3>CyberSecurity</h3>
-        <p>Running a self-hosted CTF lab (OWASP Juice Shop, DVWA, WebGoat) on an isolated Docker bridge, accessible via Tailscale mesh only. Active practice in web exploitation, privilege escalation, and network analysis.</p>
+        <h3>Offensive Security</h3>
+        <p>Running a full offensive security lab with a Kali Docker container, 8 discipline-specific security servers, and 155+ tools covering 11 of 13 MITRE ATT&CK tactics. Active CTF competitor.</p>
         <div class="domain-pills">
           <span class="pill">Kali Linux</span><span class="pill">OWASP</span><span class="pill">Burp Suite</span>
-          <span class="pill">nmap</span><span class="pill">Wireshark</span><span class="pill">CTF</span>
+          <span class="pill">nmap</span><span class="pill">sqlmap</span><span class="pill">Wireshark</span>
         </div>
       </div>
       <div class="domain-card gfx reveal reveal-delay-3">
         <div class="domain-icon">🎨</div>
         <div class="domain-label">Graphics · Design</div>
         <h3>Graphics & Visual Design</h3>
-        <p>Creating polished visual assets — vector illustrations, UI mockups, system architecture diagrams, logos, and printed materials. Design thinking applied to technical communication: making complexity beautiful.</p>
+        <p>Vector illustrations, UI mockups, system architecture diagrams, and design systems. Design thinking applied to technical communication — making complexity legible.</p>
         <div class="domain-pills">
           <span class="pill">Inkscape</span><span class="pill">GIMP</span><span class="pill">SVG</span>
           <span class="pill">CSS Art</span><span class="pill">UI/UX</span><span class="pill">Diagrams</span>
@@ -430,7 +453,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
     <div class="sec-header reveal">
       <div class="sec-tag">03 / Projects</div>
       <h2 class="sec-title">What I've Built</h2>
-      <p class="sec-subtitle">Real systems. Real problems. Real code. Not tutorials.</p>
+      <p class="sec-subtitle">Real systems. Real problems. Real code.</p>
     </div>
     <div class="projects-grid">
       <div class="project-featured reveal">
@@ -440,7 +463,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
             <rect x="40" y="40" width="80" height="50" rx="4" fill="#141820" stroke="#00c9a7" stroke-width=".5"/>
             <text x="80" y="68" text-anchor="middle" fill="#00c9a7" font-family="monospace" font-size="9" opacity=".8">LINUX SERVER</text>
             <rect x="180" y="40" width="80" height="50" rx="4" fill="#141820" stroke="#f5a623" stroke-width=".5"/>
-            <text x="220" y="68" text-anchor="middle" fill="#f5a623" font-family="monospace" font-size="9" opacity=".8">AI AGENT</text>
+            <text x="220" y="68" text-anchor="middle" fill="#f5a623" font-family="monospace" font-size="9" opacity=".8">ORCHESTRATOR</text>
             <line x1="120" y1="65" x2="178" y2="65" stroke="#00c9a7" stroke-width="1" stroke-dasharray="3 2" opacity=".6"/>
             <polygon points="175,61 181,65 175,69" fill="#00c9a7" opacity=".6"/>
             <rect x="110" y="120" width="80" height="50" rx="4" fill="#141820" stroke="#f5a623" stroke-width=".5"/>
@@ -452,12 +475,12 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
           </svg>
         </div>
         <div class="project-body">
-          <div class="project-number">// project_01 · flagship · AI + Shell</div>
+          <div class="project-number">// project_01 · open source · SSH orchestration</div>
           <h3 class="project-title">ssh-shell-mcp</h3>
-          <p class="project-desc">A production-grade MCP server giving an AI assistant 57+ structured tools for remote Linux server management — one-off commands, persistent sessions, fleet orchestration, SSH tunnelling, SFTP, tmux, playbooks, and Tailscale integration. Built from scratch. Used daily. Open source.</p>
+          <p class="project-desc">A Python SSH orchestration library exposing 57 structured tools for programmatic infrastructure control — one-off commands, persistent sessions, fleet broadcasting, tunnelling, SFTP, tmux, and playbooks. Async connection pool, built-in audit trail, and a security policy gate. Production-deployed and open source.</p>
           <div class="project-stack">
             <span class="stack-badge">Python</span><span class="stack-badge">AsyncSSH</span>
-            <span class="stack-badge">FastMCP</span><span class="stack-badge">MCP Protocol</span><span class="stack-badge">Linux</span><span class="stack-badge">Tailscale</span>
+            <span class="stack-badge">FastMCP</span><span class="stack-badge">Linux</span><span class="stack-badge">Tailscale</span>
           </div>
           <div class="project-links">
             <a class="proj-link" href="https://github.com/jaguar999paw-droid/ssh-shell-mcp" target="_blank" rel="noopener">↗ GitHub</a>
@@ -466,25 +489,115 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       </div>
       <div class="projects-secondary">
         <div class="proj-card reveal reveal-delay-1">
-          <div class="proj-card-tag">Security Lab · CyberSec</div>
-          <h3 class="proj-card-title">CTF Practice Lab</h3>
-          <p class="proj-card-desc">Containerised offensive-security environment: OWASP Juice Shop, DVWA, and WebGoat behind a Caddy reverse proxy on an isolated Docker bridge network, accessible via Tailscale mesh only. Covers web exploitation, SQLi, XSS, and privilege escalation.</p>
-          <div class="project-stack"><span class="stack-badge">Kali Linux</span><span class="stack-badge">Docker</span><span class="stack-badge">OWASP</span><span class="stack-badge">Burp Suite</span></div>
-          <div class="proj-card-foot"><span>Isolated · CTF-ready</span><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">GitHub →</a></div>
+          <div class="proj-card-tag">Full-Stack · Node + React + Python</div>
+          <h3 class="proj-card-title">Habitat</h3>
+          <p class="proj-card-desc">A songwriting application built around structured identity reasoning. Three-tier stack: React 18 frontend, Node.js/Express backend with 15 engine modules, Python/Flask ML microservice. 23 REST endpoints, Kiswahili and Sheng language support, lyric analysis toolkit.</p>
+          <div class="project-stack"><span class="stack-badge">React</span><span class="stack-badge">Node.js</span><span class="stack-badge">Python/Flask</span><span class="stack-badge">ML</span></div>
+          <div class="proj-card-foot"><span>Open source</span><a href="https://github.com/jaguar999paw-droid/Habitat" target="_blank" rel="noopener">GitHub →</a></div>
         </div>
         <div class="proj-card reveal reveal-delay-2">
-          <div class="proj-card-tag">Infrastructure · Shell</div>
-          <h3 class="proj-card-title">Headscale VPN Stack</h3>
-          <p class="proj-card-desc">Self-hosted Tailscale control plane with Caddy reverse proxy, DNS-01 TLS via DuckDNS, and Cloudflare Quick Tunnel as resilient ISP-bypass gateway. Includes a custom Bash provisioning script and ACL policy management for Policy v2.</p>
-          <div class="project-stack"><span class="stack-badge">Headscale 0.28</span><span class="stack-badge">Docker Compose</span><span class="stack-badge">Caddy</span><span class="stack-badge">Bash</span></div>
-          <div class="proj-card-foot"><span>Private mesh network</span><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">Details →</a></div>
+          <div class="proj-card-tag">Infrastructure · Python</div>
+          <h3 class="proj-card-title">headscale-mcp</h3>
+          <p class="proj-card-desc">MCP server for managing a self-hosted Headscale control plane — user and node management, pre-auth key lifecycle, subnet route control, and DERP map inspection via the Headscale REST API.</p>
+          <div class="project-stack"><span class="stack-badge">Python</span><span class="stack-badge">FastMCP</span><span class="stack-badge">Headscale</span><span class="stack-badge">Tailscale</span></div>
+          <div class="proj-card-foot"><span>Open source</span><a href="https://github.com/jaguar999paw-droid/headscale-mcp" target="_blank" rel="noopener">GitHub →</a></div>
         </div>
         <div class="proj-card reveal reveal-delay-3">
           <div class="proj-card-tag">Academic · C++ · Algorithms</div>
           <h3 class="proj-card-title">Spaghetti Sort</h3>
-          <p class="proj-card-desc">Multi-threaded simulation of the spaghetti sort algorithm in C++ — demonstrating concurrent programming, thread synchronisation, and unconventional algorithm design. Public on GitHub.</p>
+          <p class="proj-card-desc">Multi-threaded simulation of the spaghetti sort algorithm in C++ — a physical sorting thought experiment implemented with concurrent threads. Demonstrates thread synchronisation and unconventional algorithm design.</p>
           <div class="project-stack"><span class="stack-badge">C++17</span><span class="stack-badge">Threading</span><span class="stack-badge">Algorithms</span></div>
           <div class="proj-card-foot"><span>Open source</span><a href="https://github.com/jaguar999paw-droid/spaghetti-sort" target="_blank" rel="noopener">View →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SECURITY ═══════════════════ -->
+<section id="security">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag red">04 / Security</div>
+      <h2 class="sec-title">Offensive Security Lab</h2>
+      <p class="sec-subtitle">Not a course. A working lab built and maintained on real hardware — used daily for CTF competitions and security research.</p>
+    </div>
+    <div class="sec-grid">
+      <div class="sec-body reveal">
+        <p>The lab is structured around <strong>toolBOX</strong> — a private repository housing a cluster of eight discipline-specific security servers, each running independently with its own tools and Kali Linux Docker container as the execution backend.</p>
+        <p>The architecture mirrors how real security operations teams are structured: web exploitation, reconnaissance, binary analysis, cryptography, forensics, and reverse engineering each have their own server and mental model. The cluster covers <strong>11 of 13 MITRE ATT&CK tactics</strong> at enterprise depth.</p>
+        <p>The lab also runs an isolated Docker network hosting <strong>OWASP Juice Shop, DVWA, and WebGoat</strong> — accessible only via private Tailscale mesh — for safe web exploitation practice.</p>
+
+        <table class="attack-table">
+          <thead>
+            <tr><th>MITRE Tactic</th><th>Server</th><th>Coverage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Reconnaissance</td><td>recon-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Initial Access</td><td>web-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Execution</td><td>kali-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Privilege Escalation</td><td>pwn-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Credential Access</td><td>crypto-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Collection</td><td>forensics-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Defense Evasion</td><td>ops-mcp</td><td class="cov-full">Full</td></tr>
+            <tr><td>Lateral Movement</td><td>ops-mcp</td><td class="cov-part">Roadmap</td></tr>
+            <tr><td>Exfiltration</td><td>ops-mcp</td><td class="cov-part">Partial</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="servers-grid">
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">kali-mcp</div>
+            <div class="server-tools">14 tools</div>
+            <div class="server-cat">Container Gateway</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">web-mcp</div>
+            <div class="server-tools">16 tools</div>
+            <div class="server-cat">Web Exploitation</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">recon-mcp</div>
+            <div class="server-tools">15 tools</div>
+            <div class="server-cat">OSINT / Recon</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">forensics-mcp</div>
+            <div class="server-tools">17 tools</div>
+            <div class="server-cat">DFIR / Forensics</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">pwn-mcp</div>
+            <div class="server-tools">9 tools</div>
+            <div class="server-cat">Binary Exploitation</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">rev-mcp</div>
+            <div class="server-tools">12 tools</div>
+            <div class="server-cat">Reverse Engineering</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">crypto-mcp</div>
+            <div class="server-tools">13 tools</div>
+            <div class="server-cat">Cryptography</div>
+          </div>
+          <div class="server-row">
+            <div class="server-dot"></div>
+            <div class="server-name">ops-mcp</div>
+            <div class="server-tools">12 tools</div>
+            <div class="server-cat">Red Team Ops</div>
+          </div>
+        </div>
+        <div class="toolbox-note">
+          <strong>toolBOX</strong> is a private repository. The public-facing servers — forensics-mcp, kali-mcp, recon-mcp, web-mcp, pwn-mcp, rev-mcp — are available on GitHub and actively used in CTF competition environments.
         </div>
       </div>
     </div>
@@ -495,7 +608,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 <section id="blueprint">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">04 / Roadmap</div>
+      <div class="sec-tag">05 / Roadmap</div>
       <h2 class="sec-title">2026 Portfolio Blueprint</h2>
       <p class="sec-subtitle">Three projects in active development — designed to prove full-stack, infrastructure, and open-source competency for both Kenyan and global markets.</p>
     </div>
@@ -506,18 +619,16 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
         <p>A real-world fintech application integrating the Safaricom Daraja API for M-Pesa STK Push, C2B, and B2C payment flows. Includes transaction ledger, SMS notifications via Africa's Talking, and an offline-first PWA for low-bandwidth areas.</p>
         <div class="bp-meta">
           <strong>Stack:</strong> Next.js · Node.js · PostgreSQL · Daraja API · AT SMS<br>
-          <strong>Pattern:</strong> Strategy (payment gateway) · Repository (data layer)<br>
           <strong>Target:</strong> Safaricom · Equity Bank · Kenyan Fintechs
         </div>
       </div>
       <div class="bp-card reveal reveal-delay-1" data-n="02">
-        <div class="bp-status planned">○ Planned · Q2 2026</div>
+        <div class="bp-status planned">○ Planned · Q3 2026</div>
         <h3>EdgeCache</h3>
-        <p>A technical deep-dive into distributed caching and LLM inference optimisation. Benchmarks Redis vs in-process caching for AI response latency, with a live dashboard showing hit rates, token throughput, and memory usage under load.</p>
+        <p>A benchmarking and observability project for distributed caching. Measures Redis vs in-process caching under load, with a live dashboard showing hit rates, latency distributions, and memory usage.</p>
         <div class="bp-meta">
-          <strong>Stack:</strong> Go · Redis · Docker · Grafana · Claude API<br>
-          <strong>Pattern:</strong> Factory (cache backends) · DI (observability)<br>
-          <strong>Target:</strong> Remote · Performance-focused engineering roles
+          <strong>Stack:</strong> Go · Redis · Docker · Grafana<br>
+          <strong>Target:</strong> Performance-focused engineering roles
         </div>
       </div>
       <div class="bp-card reveal reveal-delay-2" data-n="03">
@@ -526,8 +637,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
         <p>A typed, modular Node.js/Python SDK for the Safaricom Daraja API — the M-Pesa integration layer every Kenyan developer has had to re-implement from scratch. Full ISP compliance, retry logic, and webhook signature verification.</p>
         <div class="bp-meta">
           <strong>Stack:</strong> TypeScript · Python · npm · PyPI · GitHub Actions<br>
-          <strong>Pattern:</strong> Facade (Daraja complexity) · OCP (payment methods)<br>
-          <strong>Target:</strong> Kenyan dev community · Open Source contribution
+          <strong>Target:</strong> Kenyan dev community · Open Source
         </div>
       </div>
     </div>
@@ -538,7 +648,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 <section id="solid">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">05 / Engineering Philosophy</div>
+      <div class="sec-tag">06 / Engineering Philosophy</div>
       <h2 class="sec-title">SOLID by Design</h2>
       <p class="sec-subtitle">Every project in this portfolio is architected around these principles — not as theory, but as working code decisions.</p>
     </div>
@@ -546,7 +656,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="solid-cell">
         <div class="solid-letter">S</div>
         <div class="solid-word">Single Responsibility</div>
-        <div class="solid-desc">Each module does one thing. In ssh-shell-mcp, file ops, tunnelling, and fleet tools are split across isolated Python modules — not one 3,000-line file.</div>
+        <div class="solid-desc">Each module does one thing. In ssh-shell-mcp, file ops, tunnelling, and fleet tools are split across isolated Python modules. In toolBOX, each security discipline has its own server.</div>
       </div>
       <div class="solid-cell">
         <div class="solid-letter">O</div>
@@ -566,7 +676,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="solid-cell">
         <div class="solid-letter">D</div>
         <div class="solid-word">Dependency Inversion</div>
-        <div class="solid-desc">High-level modules depend on abstractions. daraja-sdk's HTTP layer is injected — swap axios for fetch or a mock in tests without touching business logic.</div>
+        <div class="solid-desc">High-level modules depend on abstractions. daraja-sdk's HTTP layer is injected — swap the client or mock it in tests without touching business logic.</div>
       </div>
     </div>
   </div>
@@ -576,7 +686,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 <section id="stack">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">06 / Tech Stack</div>
+      <div class="sec-tag">07 / Tech Stack</div>
       <h2 class="sec-title">Tools of the Trade</h2>
     </div>
     <div class="stack-grid reveal">
@@ -586,7 +696,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="stack-item"><div class="stack-dot"></div><span>C++17</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>PHP 8</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>TypeScript</span></div>
-      <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Next.js</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>React 18</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Go (learning)</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Docker</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Docker Compose</span></div>
@@ -594,18 +704,18 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
       <div class="stack-item"><div class="stack-dot"></div><span>Tailscale / WG</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Caddy</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>PostgreSQL</span></div>
-      <div class="stack-item"><div class="stack-dot"></div><span>Claude API</span></div>
-      <div class="stack-item"><div class="stack-dot"></div><span>MCP Protocol</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>FastMCP</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>AsyncSSH</span></div>
       <div class="stack-item"><div class="stack-dot"></div><span>Git · GitHub</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>Kali Linux</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>Burp Suite</span></div>
-      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>nmap · Wireshark</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>nmap · sqlmap</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>Wireshark</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>Ghidra · radare2</span></div>
+      <div class="stack-item"><div class="stack-dot" style="background:var(--red)"></div><span>binwalk · hashcat</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--purple)"></div><span>Inkscape</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--purple)"></div><span>GIMP</span></div>
       <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Redis</span></div>
-      <div class="stack-item"><div class="stack-dot" style="background:var(--amber)"></div><span>Grafana</span></div>
     </div>
   </div>
 </section>
@@ -614,7 +724,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 <section id="kenya">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">07 / Local Edge</div>
+      <div class="sec-tag">08 / Local Edge</div>
       <h2 class="sec-title">Built for Kenya</h2>
       <p class="sec-subtitle">Understanding the local tech ecosystem is a competitive advantage. These are the competencies that matter for Kenyan engineering roles — from Safaricom to early-stage startups.</p>
     </div>
@@ -644,7 +754,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
         <div class="kenya-icon">/</div>
         <div>
           <h4>Low-Latency Infrastructure</h4>
-          <p>Hands-on experience deploying self-hosted services with Cloudflare CDN, DNS-01 TLS, and Tailscale mesh networking — optimised for Kenyan ISP realities.</p>
+          <p>Self-hosted services with Cloudflare CDN, DNS-01 TLS, and Tailscale mesh networking — infrastructure decisions tuned for Kenyan ISP realities.</p>
         </div>
       </div>
     </div>
@@ -655,7 +765,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 <section id="contact">
   <div class="container">
     <div class="contact-inner">
-      <div class="sec-tag">08 / Contact</div>
+      <div class="sec-tag">09 / Contact</div>
       <h2 class="sec-title reveal">Let's build something.<br>Or talk about it first.</h2>
       <p class="reveal reveal-delay-1">I'm actively looking for Industrial Attachment opportunities and entry-level engineering roles in Kenya and remotely. If you're working on something interesting — reach out.</p>
       <div class="contact-links reveal reveal-delay-2">
@@ -677,7 +787,7 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
 </section>
 
 <footer>
-  <div class="footer-copy">© 2026 <span>Paul Wambugu</span> · Chuka, Kenya 🇰🇪 · BSc Applied Computer Science · Chuka University</div>
+  <div class="footer-copy">© 2026 <span>Paul Wambugu</span> · Kenya 🇰🇪 · BSc Applied Computer Science · Chuka University</div>
   <div class="footer-right">jaguar999paw-droid.github.io</div>
 </footer>
 
