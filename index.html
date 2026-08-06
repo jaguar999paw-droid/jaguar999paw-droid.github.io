@@ -306,11 +306,33 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
   .hero-stats{gap:1.5rem}
   .hero-name{font-size:2.4rem}
 }
+
+/* ===== Interactivity layer additions ===== */
+section[id]{scroll-margin-top:76px}
+nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
+.nav-links a{position:relative}
+.nav-links a.active{color:var(--teal)}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--teal)}
+.api-status{display:inline-block;width:6px;height:6px;border-radius:50%;margin-left:.5rem;background:var(--text3);transition:background .3s ease}
+.api-status.online{background:var(--teal);box-shadow:0 0 6px var(--teal-glow)}
+.api-status.offline{background:var(--red)}
+.stack-badge{cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.stack-badge:hover{border-color:var(--teal-dim);color:var(--teal)}
+.stack-badge.copied{background:var(--teal-glow);border-color:var(--teal);color:var(--teal)}
+.proj-card,.project-featured{position:relative;overflow:hidden}
+.proj-card::after,.project-featured::after{content:"";position:absolute;inset:0;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),var(--teal-glow),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.proj-card.tilt-active::after,.project-featured.tilt-active::after{opacity:1}
+.stat-num{transition:opacity .2s ease}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .proj-card,.project-featured{transition:none!important}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
 <nav>
-  <div class="nav-logo">pw<span>.</span>dev</div>
+  <div class="nav-logo">pw<span>.</span>dev<span id="api-status" class="api-status" title="checking backend&#8230;" aria-label="backend status"></span></div>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#domains">expertise</a></li>
@@ -750,23 +772,6 @@ footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-ite
   <div class="footer-right">Built with HTML · No frameworks · No dependencies</div>
 </footer>
 
-<script>
-/* Telegram WebApp integration */
-(function(){
-  var twa = window.Telegram && window.Telegram.WebApp;
-  if(twa){
-    twa.ready();
-    twa.expand();
-  }
-})();
-
-/* Scroll reveal */
-var observer = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting) e.target.classList.add('visible');
-  });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
-</script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
