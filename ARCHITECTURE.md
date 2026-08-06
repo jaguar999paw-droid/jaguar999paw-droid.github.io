@@ -56,3 +56,13 @@ npm run deploy:staging
 npm run deploy:prod
 npm run tail:prod
 ```
+
+## Multi-portfolio platform
+
+This site is frontend #1 on the personal plane of a wider platform
+designed to host several isolated portfolios behind one shared backend.
+Full strategy, tiering, and rollout plan: see the
+[`portfolio-gateway`](https://github.com/jaguar999paw-droid/portfolio-gateway)
+repo's `PLATFORM_STRATEGY.md`. This site's own `/api/hello` Pages
+Function is unaffected and continues to work standalone; the gateway is
+additive infrastructure for future portfolios, not a replacement.
