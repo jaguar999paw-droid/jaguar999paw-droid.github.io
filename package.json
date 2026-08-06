@@ -1,0 +1,26 @@
+{
+  "name": "jaguar999paw-droid.github.io",
+  "version": "1.0.0",
+  "description": "**Live:** https://jaguar999paw-droid.github.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pages:dev": "wrangler pages dev .",
+    "pages:deploy": "wrangler pages deploy ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaguar999paw-droid/jaguar999paw-droid.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jaguar999paw-droid/jaguar999paw-droid.github.io/issues"
+  },
+  "homepage": "https://github.com/jaguar999paw-droid/jaguar999paw-droid.github.io#readme",
+  "devDependencies": {
+    "wrangler": "^4.119.0"
+  }
+}
