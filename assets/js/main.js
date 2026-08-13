@@ -257,10 +257,11 @@
    * Resolves quietly to "offline" on GitHub Pages, where /api doesn't
    * exist, and to "online" on the Cloudflare deployment.
    * ------------------------------------------------------------------- */
-  function fetchWithTimeout(url, ms) {
+  function fetchWithTimeout(url, ms, options) {
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, ms);
-    return fetch(url, { signal: controller.signal, cache: 'no-store' }).finally(function () {
+    var opts = Object.assign({ signal: controller.signal, cache: 'no-store' }, options || {});
+    return fetch(url, opts).finally(function () {
       clearTimeout(timer);
     });
   }
@@ -292,6 +293,204 @@
   }
 
   /* ---------------------------------------------------------------------
+   * Contact form — client-side validation + submission to /api/contact.
+   *
+   * Frontend/backend contract:
+   *   POST /api/contact  { name, email, subject, message, company }
+   *   -> 200 { ok: true }
+   *   -> 422 { ok: false, errors: { field: "message", ... } }   (validation)
+   *   -> 4xx/5xx { ok: false, error: "message" }                (server/relay)
+   *
+   * `company` is a honeypot: it's always sent, always empty for real users.
+   * The Pages Function (functions/api/contact.js) re-validates everything
+   * server-side — client validation here is only a UX layer, never trusted
+   * as the source of truth.
+   * ------------------------------------------------------------------- */
+  var CF_VALIDATORS = {
+    name: function (v) {
+      if (v.trim().length < 2) return 'Enter your name (at least 2 characters).';
+      if (v.trim().length > 80) return 'Keep it under 80 characters.';
+      return null;
+    },
+    email: function (v) {
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(v.trim())) return 'Enter a valid email address.';
+      return null;
+    },
+    subject: function (v) {
+      if (v.trim().length < 3) return 'Subject is too short.';
+      if (v.trim().length > 120) return 'Keep the subject under 120 characters.';
+      return null;
+    },
+    message: function (v) {
+      if (v.trim().length < 20) return 'Message needs at least 20 characters.';
+      if (v.trim().length > 4000) return 'Message is too long (4000 character max).';
+      return null;
+    },
+  };
+
+  function cfSetFieldState(group, errorEl, message) {
+    if (message) {
+      group.classList.add('invalid');
+      group.classList.remove('valid');
+      errorEl.textContent = message;
+    } else {
+      group.classList.remove('invalid');
+      group.classList.add('valid');
+      errorEl.textContent = '';
+    }
+  }
+
+  function cfValidateField(form, fieldName) {
+    var input = form.elements[fieldName];
+    var group = form.querySelector('[data-field="' + fieldName + '"]');
+    var errorEl = document.getElementById('cf-' + fieldName + '-error');
+    if (!input || !group || !errorEl) return true;
+
+    var message = CF_VALIDATORS[fieldName] ? CF_VALIDATORS[fieldName](input.value) : null;
+    cfSetFieldState(group, errorEl, message);
+    return !message;
+  }
+
+  function cfValidateAll(form) {
+    var fields = ['name', 'email', 'subject', 'message'];
+    var valid = true;
+    fields.forEach(function (f) {
+      if (!cfValidateField(form, f)) valid = false;
+    });
+    return valid;
+  }
+
+  function cfShowStatus(statusEl, kind, message) {
+    statusEl.textContent = message;
+    statusEl.className = 'form-status show ' + kind;
+  }
+
+  function initContactForm() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    var submitBtn = document.getElementById('cf-submit');
+    var statusEl = document.getElementById('cf-status');
+    var messageInput = document.getElementById('cf-message');
+    var messageCount = document.getElementById('cf-message-count');
+
+    // Live character count for the message field.
+    if (messageInput && messageCount) {
+      messageInput.addEventListener('input', function () {
+        messageCount.textContent = messageInput.value.length;
+      });
+    }
+
+    // Validate on blur (don't nag the user while they're still typing the
+    // first draft of a field) and re-validate on input once a field has
+    // already been marked invalid (so the error clears the moment it's fixed).
+    ['name', 'email', 'subject', 'message'].forEach(function (fieldName) {
+      var input = form.elements[fieldName];
+      if (!input) return;
+
+      input.addEventListener('blur', function () {
+        cfValidateField(form, fieldName);
+      });
+
+      input.addEventListener('input', function () {
+        var group = form.querySelector('[data-field="' + fieldName + '"]');
+        if (group && group.classList.contains('invalid')) {
+          cfValidateField(form, fieldName);
+        }
+      });
+    });
+
+    // Staggered entrance for the form fields once the form scrolls into view —
+    // separate from the site-wide .reveal system since these are nested
+    // inside a single .reveal container and need their own stagger.
+    var groups = Array.prototype.slice.call(form.querySelectorAll('.form-group'));
+    if (groups.length && !prefersReducedMotion && typeof IntersectionObserver !== 'undefined') {
+      var groupObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            groups.forEach(function (g, i) {
+              setTimeout(function () { g.classList.add('in-view'); }, i * 90);
+            });
+            groupObserver.disconnect();
+          });
+        },
+        { threshold: 0.2 }
+      );
+      groupObserver.observe(form);
+    } else {
+      groups.forEach(function (g) { g.classList.add('in-view'); });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!cfValidateAll(form)) {
+        cfShowStatus(statusEl, 'error', 'Please fix the highlighted fields and try again.');
+        return;
+      }
+
+      var payload = {
+        name: form.elements.name.value.trim(),
+        email: form.elements.email.value.trim(),
+        subject: form.elements.subject.value.trim(),
+        message: form.elements.message.value.trim(),
+        company: form.elements.company.value, // honeypot — should always be empty
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      statusEl.className = 'form-status'; // hide any previous status while sending
+
+      fetchWithTimeout('/api/contact', 10000, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            return { ok: res.ok, status: res.status, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data.ok) {
+            cfShowStatus(statusEl, 'success', 'Message sent — thanks for reaching out. I\u2019ll reply within 24\u201348 hours.');
+            form.reset();
+            groups.forEach(function (g) { g.classList.remove('valid', 'invalid'); });
+            if (messageCount) messageCount.textContent = '0';
+            return;
+          }
+
+          if (result.data && result.data.errors) {
+            // Server-side validation caught something the client missed —
+            // surface it against the right field.
+            Object.keys(result.data.errors).forEach(function (field) {
+              var group = form.querySelector('[data-field="' + field + '"]');
+              var errorEl = document.getElementById('cf-' + field + '-error');
+              if (group && errorEl) cfSetFieldState(group, errorEl, result.data.errors[field]);
+            });
+            cfShowStatus(statusEl, 'error', 'Please fix the highlighted fields and try again.');
+            return;
+          }
+
+          cfShowStatus(
+            statusEl,
+            'error',
+            (result.data && result.data.error) || 'Something went wrong sending your message. Please email me directly instead.'
+          );
+        })
+        .catch(function () {
+          cfShowStatus(statusEl, 'error', 'Network error — please check your connection and try again, or email me directly.');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('loading');
+        });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
    * Boot
    * ------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -302,5 +501,6 @@
     if (!prefersReducedMotion) initTilt();
     initDelegatedClicks();
     initBackendStatus();
+    initContactForm();
   });
 })();
