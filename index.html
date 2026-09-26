@@ -6,7 +6,7 @@
 <title>Paul Wambugu — Software Engineer · Security · Systems · Shell</title>
 <meta name="description" content="Paul Wambugu — Software Developer and Security Practitioner based in Kenya. Systems engineering, offensive security tooling, and infrastructure automation."/>
 <meta name="author" content="Paul Wambugu"/>
-<meta name="keywords" content="Paul Wambugu, software engineer Kenya, cybersecurity, penetration testing, CTF, bash scripting, Chuka University, industrial attachment Kenya, security tooling"/>
+<meta name="keywords" content="Paul Wambugu, software engineer Kenya, cybersecurity, penetration testing, CTF, bash scripting, Chuka University, software engineering jobs Kenya, security tooling"/>
 <meta property="og:title" content="Paul Wambugu — Software Engineer · Security · Systems"/>
 <meta property="og:description" content="Building security tooling, systems infrastructure, and open-source developer tools from Kenya."/>
 <meta property="og:type" content="website"/>
@@ -140,6 +140,8 @@ section{position:relative;z-index:1}
 .tag{font-family:var(--font-mono);font-size:.72rem;padding:.3rem .8rem;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;letter-spacing:.05em}
 .about-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:1.8rem}
 .about-card-title{font-family:var(--font-mono);font-size:.73rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.2rem}
+.about-avatar-wrap{display:flex;justify-content:center;margin-bottom:1.6rem}
+.about-avatar{width:112px;height:112px;border-radius:50%;object-fit:cover;border:1px solid var(--border2);box-shadow:0 0 0 6px var(--teal-glow),0 12px 32px -8px rgba(0,201,167,.35);filter:saturate(1.02) contrast(1.03)}
 .info-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.87rem}
 .info-row:last-child{border-bottom:none}
 .info-label{color:var(--text3);font-family:var(--font-mono);font-size:.75rem;letter-spacing:.05em}
@@ -273,6 +275,21 @@ section{position:relative;z-index:1}
 .contact-link:hover{border-color:var(--teal);color:var(--teal)}
 .contact-link.primary{background:var(--teal);border-color:var(--teal);color:var(--bg)}
 .contact-link.primary:hover{filter:brightness(1.1)}
+.contact-form{max-width:480px;margin:2.5rem auto 0;text-align:left;display:flex;flex-direction:column;gap:1.1rem}
+.cf-field{display:flex;flex-direction:column;gap:.4rem}
+.cf-field label{font-family:var(--font-mono);font-size:.72rem;color:var(--text2);letter-spacing:.06em;text-transform:uppercase}
+.cf-field input,.cf-field textarea{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font-mono);font-size:.85rem;padding:.65rem .8rem;outline:none;transition:border-color .2s;resize:vertical}
+.cf-field input:focus,.cf-field textarea:focus{border-color:var(--teal)}
+.cf-field input.cf-invalid,.cf-field textarea.cf-invalid{border-color:var(--red)}
+.cf-field textarea{min-height:120px}
+.cf-error{font-family:var(--font-mono);font-size:.72rem;color:var(--red);min-height:1em}
+.cf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.cf-submit{align-self:flex-start;font-family:var(--font-mono);font-size:.8rem;font-weight:500;letter-spacing:.05em;padding:.72rem 1.6rem;background:var(--teal);color:var(--bg);border:none;border-radius:var(--r);cursor:pointer;transition:all .2s}
+.cf-submit:hover{filter:brightness(1.1)}
+.cf-submit:disabled{opacity:.6;cursor:not-allowed}
+.cf-status{font-family:var(--font-mono);font-size:.78rem;min-height:1.2em}
+.cf-status-ok{color:var(--teal)}
+.cf-status-error{color:var(--red)}
 footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-copy{font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
 .footer-copy span{color:var(--teal)}
@@ -348,7 +365,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 <section id="hero">
   <div class="hero-inner">
     <div>
-      <p class="hero-eyebrow">Available for Industrial Attachment · 2026</p>
+      <p class="hero-eyebrow">Open to Software Engineering Roles · 2026</p>
       <h1 class="hero-name">Paul<br><span class="accent">Wambugu</span></h1>
       <p class="hero-title"><strong>Software Developer</strong> · Systems Engineer<br>Security Practitioner</p>
       <p class="hero-bio">Building security tooling, systems infrastructure, and open-source developer libraries from Kenya. I run a full offensive security lab on real hardware, maintain a cluster of purpose-built security MCP servers, and ship production code across Python, JavaScript, and C++.</p>
@@ -361,28 +378,26 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         <a class="btn-outline" href="#contact">Get in Touch</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">8</div><div class="stat-label">Security servers</div></div>
-        <div><div class="stat-num">155+</div><div class="stat-label">Security tools</div></div>
-        <div><div class="stat-num">11</div><div class="stat-label">MITRE tactics</div></div>
+        <div><div class="stat-num">57</div><div class="stat-label">SSH tools shipped</div></div>
+        <div><div class="stat-num">20+</div><div class="stat-label">Open-source repos</div></div>
+        <div><div class="stat-num">6+</div><div class="stat-label">Years coding</div></div>
         <div><div class="stat-num">4th</div><div class="stat-label">Year undergrad</div></div>
       </div>
     </div>
     <div class="hero-terminal">
       <div class="terminal-bar">
         <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-        <span>~/toolBOX — zsh</span>
+        <span>~/ssh-shell-mcp — zsh</span>
       </div>
       <div class="terminal-body">
-        <div><span class="t-prompt">❯</span> <span class="t-cmd">ls toolBOX/</span></div>
-        <div class="t-out"><span class="t-val">kali-mcp/</span>  <span class="t-val">web-mcp/</span>   <span class="t-val">recon-mcp/</span></div>
-        <div class="t-out"><span class="t-val">forensics-mcp/</span> <span class="t-val">pwn-mcp/</span></div>
-        <div class="t-out"><span class="t-val">crypto-mcp/</span> <span class="t-val">rev-mcp/</span>   <span class="t-val">ops-mcp/</span></div>
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">ssh_health_check_fleet</span></div>
+        <div class="t-out"><span class="t-val">web01</span> <span class="t-red">ok</span>  <span class="t-val">db01</span> <span class="t-red">ok</span>  <span class="t-val">jump01</span> <span class="t-red">ok</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cmd">docker ps --format "{{.Names}}"</span></div>
-        <div class="t-out"><span class="t-red">KALI_CTF</span> <span class="t-comment"># running</span></div>
+        <div class="t-out"><span class="t-red">dizaster-lab</span> <span class="t-comment"># running</span></div>
         <br/>
-        <div><span class="t-prompt">❯</span> <span class="t-cmd">echo $MITRE_COVERAGE</span></div>
-        <div class="t-out"><span class="t-val">11/13 tactics · enterprise-grade</span></div>
+        <div><span class="t-prompt">❯</span> <span class="t-cmd">whoami</span></div>
+        <div class="t-out"><span class="t-val">software developer · systems · security</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cursor"></span></div>
       </div>
@@ -400,9 +415,9 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
     <div class="about-grid">
       <div class="about-text reveal">
         <p>I'm a software developer and security practitioner in my fourth year at <strong>Chuka University</strong>, pursuing a BSc in Applied Computer Science. I've been writing code for over six years across systems programming, backend engineering, infrastructure automation, and offensive security tooling.</p>
-        <p>My security work is grounded in a real lab — a Kali Linux container wired to a cluster of eight discipline-specific security servers covering reconnaissance, web exploitation, binary analysis, cryptography, forensics, and reverse engineering. The tooling is used to compete in CTF challenges and develop practical skill across the MITRE ATT&CK framework.</p>
+        <p>Alongside that I keep a home security lab — a Kali Linux container paired with a set of purpose-built MCP servers — that I use to compete in CTF competitions and sharpen practical offensive-security skills.</p>
         <p>My open-source work includes <strong>ssh-shell-mcp</strong> — a 57-tool Python SSH orchestration library — and <strong>headscale-mcp</strong>, a server for managing self-hosted VPN infrastructure. Both are production-deployed and actively maintained.</p>
-        <p>I'm looking for an <strong>Industrial Attachment</strong> placement where I can contribute immediately — in security, systems, backend engineering, or infrastructure.</p>
+        <p>I'm looking for a full-time <strong>Software Engineering role</strong> where I can contribute immediately — in security, systems, backend engineering, or infrastructure.</p>
         <div class="about-tags">
           <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">C++</span>
           <span class="tag">JavaScript</span><span class="tag">Docker</span><span class="tag">Linux</span>
@@ -411,6 +426,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         </div>
       </div>
       <div class="about-card reveal reveal-delay-1">
+        <div class="about-avatar-wrap"><img class="about-avatar" src="assets/img/avatar.jpg" alt="Paul Wambugu" loading="lazy" width="112" height="112"/></div>
         <div class="about-card-title">// identity.json</div>
         <div class="info-row"><span class="info-label">Name</span><span class="info-val">Paul Wambugu</span></div>
         <div class="info-row"><span class="info-label">GitHub</span><span class="info-val"><a href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">@jaguar999paw-droid</a></span></div>
@@ -420,7 +436,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         <div class="info-row"><span class="info-label">Programme</span><span class="info-val">BSc Applied Computer Science</span></div>
         <div class="info-row"><span class="info-label">Year</span><span class="info-val">4th Year · 2022–Present</span></div>
         <div class="info-row"><span class="info-label">Daily Machine</span><span class="info-val">Ubuntu 24.04 LTS</span></div>
-        <div class="info-row"><span class="info-label">Status</span><span class="info-val"><span class="avail-dot"></span>Open to IA / Roles</span></div>
+        <div class="info-row"><span class="info-label">Status</span><span class="info-val"><span class="avail-dot"></span>Open to full-time roles</span></div>
       </div>
     </div>
   </div>
@@ -432,7 +448,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
     <div class="sec-header reveal">
       <div class="sec-tag">02 / Expertise Domains</div>
       <h2 class="sec-title">Four Deep Specialties</h2>
-      <p class="sec-subtitle">Not a generalist who dabbles — these are the four areas I go deep in, every day.</p>
+      <p class="sec-subtitle">These are the four areas I spend most of my time in.</p>
     </div>
     <div class="domains-grid">
       <div class="domain-card shell reveal">
@@ -459,7 +475,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         <div class="domain-icon">🔐</div>
         <div class="domain-label">Security · CTF</div>
         <h3>Offensive Security</h3>
-        <p>Running a full offensive security lab with a Kali Docker container, 8 discipline-specific security servers, and 155+ tools covering 11 of 13 MITRE ATT&CK tactics. Active CTF competitor.</p>
+        <p>Run a Kali Linux lab wired to a set of custom MCP security servers, used to compete in CTF challenges and practice offensive techniques across the MITRE ATT&CK framework.</p>
         <div class="domain-pills">
           <span class="pill">Kali Linux</span><span class="pill">OWASP</span><span class="pill">Burp Suite</span>
           <span class="pill">nmap</span><span class="pill">sqlmap</span><span class="pill">Wireshark</span>
@@ -485,7 +501,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
     <div class="sec-header reveal">
       <div class="sec-tag">03 / Projects</div>
       <h2 class="sec-title">What I've Built</h2>
-      <p class="sec-subtitle">Real systems. Real problems. Real code.</p>
+      <p class="sec-subtitle">Projects I've actually shipped and still maintain.</p>
     </div>
     <div class="projects-grid">
       <div class="project-featured reveal">
@@ -552,43 +568,17 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
     <div class="sec-header reveal">
       <div class="sec-tag red">04 / Security</div>
       <h2 class="sec-title">Offensive Security Lab</h2>
-      <p class="sec-subtitle">Not a course. A working lab built and maintained on real hardware — used daily for CTF competitions and security research.</p>
+      <p class="sec-subtitle">A personal lab I run on real hardware, used for CTF competitions and hands-on security practice.</p>
     </div>
     <div class="sec-grid">
       <div class="sec-body reveal">
-        <p>The lab is structured around <strong>toolBOX</strong> — a private repository housing a cluster of eight discipline-specific security servers, each running independently with its own tools and Kali Linux Docker container as the execution backend.</p>
-        <p>The architecture mirrors how real security operations teams are structured: web exploitation, reconnaissance, binary analysis, cryptography, forensics, and reverse engineering each have their own server and mental model. The cluster covers <strong>11 of 13 MITRE ATT&CK tactics</strong> at enterprise depth.</p>
-        <p>The lab also runs an isolated Docker network hosting <strong>OWASP Juice Shop, DVWA, and WebGoat</strong> — accessible only via private Tailscale mesh — for safe web exploitation practice.</p>
-        <table class="attack-table">
-          <thead>
-            <tr><th>MITRE Tactic</th><th>Server</th><th>Coverage</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Reconnaissance</td><td>recon-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Initial Access</td><td>web-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Execution</td><td>kali-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Privilege Escalation</td><td>pwn-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Credential Access</td><td>crypto-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Collection</td><td>forensics-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Defense Evasion</td><td>ops-mcp</td><td class="cov-full">Full</td></tr>
-            <tr><td>Lateral Movement</td><td>ops-mcp</td><td class="cov-part">Roadmap</td></tr>
-            <tr><td>Exfiltration</td><td>ops-mcp</td><td class="cov-part">Partial</td></tr>
-          </tbody>
-        </table>
+        <p>My security practice runs on <strong>toolBOX</strong>, a private lab built around a Kali Linux container and a handful of purpose-built MCP servers — one per discipline (web, recon, forensics, crypto, binary exploitation, reverse engineering). It's a working environment, not a demo: I use it to compete in CTF challenges and keep offensive-security skills sharp.</p>
+        <p>The lab also runs an isolated Docker network hosting <strong>OWASP Juice Shop, DVWA, and WebGoat</strong> — reachable only over a private Tailscale mesh — for safe, repeatable web exploitation practice.</p>
+        <p>The results are public even where the tooling isn't: writeups from Z0D1AK CTF forensics challenges are published at <a href="https://github.com/jaguar999paw-droid/zod1ak-writeups" target="_blank" rel="noopener">zod1ak-writeups</a>, and the general-purpose infrastructure tooling that came out of this lab — <strong>ssh-shell-mcp</strong> — is open source above.</p>
       </div>
       <div class="reveal reveal-delay-1">
-        <div class="servers-grid">
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">kali-mcp</div><div class="server-tools">14 tools</div><div class="server-cat">Container Gateway</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">web-mcp</div><div class="server-tools">16 tools</div><div class="server-cat">Web Exploitation</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">recon-mcp</div><div class="server-tools">15 tools</div><div class="server-cat">OSINT / Recon</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">forensics-mcp</div><div class="server-tools">17 tools</div><div class="server-cat">DFIR / Forensics</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">pwn-mcp</div><div class="server-tools">9 tools</div><div class="server-cat">Binary Exploitation</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">rev-mcp</div><div class="server-tools">12 tools</div><div class="server-cat">Reverse Engineering</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">crypto-mcp</div><div class="server-tools">13 tools</div><div class="server-cat">Cryptography</div></div>
-          <div class="server-row"><div class="server-dot"></div><div class="server-name">ops-mcp</div><div class="server-tools">12 tools</div><div class="server-cat">Red Team Ops</div></div>
-        </div>
         <div class="toolbox-note">
-          <strong>toolBOX</strong> is a private repository. The public-facing servers — forensics-mcp, kali-mcp, recon-mcp, web-mcp, pwn-mcp, rev-mcp — are available on GitHub and actively used in CTF competition environments.
+          <strong>toolBOX</strong> is a private repository under active development. It isn't published as separate MCP servers on GitHub — what's public is the CTF writeups it produces and the standalone open-source tools it spun off.
         </div>
       </div>
     </div>
@@ -758,11 +748,37 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
     <div class="contact-inner">
       <div class="sec-tag">09 / Contact</div>
       <h2 class="sec-title">Get in Touch</h2>
-      <p>I'm actively looking for Industrial Attachment opportunities in security, systems engineering, backend development, or infrastructure. If you're building something real in Kenya or globally — let's talk.</p>
+      <p>I'm actively looking for full-time Software Engineering opportunities in security, systems engineering, backend development, or infrastructure. If you're building something real in Kenya or globally — let's talk.</p>
       <div class="contact-links">
         <a class="contact-link primary" href="mailto:jaguar999paw@gmail.com">Email Me</a>
         <a class="contact-link" href="https://github.com/jaguar999paw-droid" target="_blank" rel="noopener">GitHub</a>
       </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="cf-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" maxlength="100"/>
+          <div class="cf-error" data-error-for="name"></div>
+        </div>
+        <div class="cf-field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" maxlength="254"/>
+          <div class="cf-error" data-error-for="email"></div>
+        </div>
+        <div class="cf-field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" maxlength="5000"></textarea>
+          <div class="cf-error" data-error-for="message"></div>
+        </div>
+        <!-- Honeypot: hidden from real users via CSS, left blank by them.
+             Bots that auto-fill every field tend to fill this too. -->
+        <div class="cf-hp" aria-hidden="true">
+          <label for="cf-hp">Leave this field empty</label>
+          <input type="text" id="cf-hp" name="_hp" tabindex="-1" autocomplete="off"/>
+        </div>
+        <button type="submit" class="cf-submit" id="cf-submit">Send Message</button>
+        <div class="cf-status" id="cf-status" role="status" aria-live="polite"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -773,5 +789,6 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/contact.js" defer></script>
 </body>
 </html>
