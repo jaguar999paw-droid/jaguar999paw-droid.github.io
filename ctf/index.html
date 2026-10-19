@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>CTF Record — Paul Wambugu</title>
+<meta name="description" content="Paul Wambugu's CTF record: Z0D1AK CTF 2026 Qualifiers result, certificate, and published writeups across cryptography, forensics and OSINT."/>
+<meta name="author" content="Paul Wambugu"/>
+<meta property="og:title" content="CTF Record — Paul Wambugu"/>
+<meta property="og:description" content="Z0D1AK CTF 2026 Qualifiers result and published challenge writeups."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://jaguar999paw-portfolio.pages.dev/ctf/"/>
+<link rel="canonical" href="https://jaguar999paw-portfolio.pages.dev/ctf/"/>
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"/>
+<meta name="theme-color" content="#080a0e"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/site.css"/>
+<link rel="stylesheet" href="../assets/css/extras.css"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <a class="nav-logo" href="../" style="text-decoration:none">pw<span>.</span>dev</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="../">← portfolio</a></li>
+    <li><a href="#certificate">certificate</a></li>
+    <li><a href="#writeups">writeups</a></li>
+    <li data-needs-notes hidden><a href="#notes">notes</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:jaguar999paw@gmail.com">hire me</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu"><svg class="i i-menu" aria-hidden="true"><use href="../assets/icons/sprite.svg#menu"/></svg><svg class="i i-close" aria-hidden="true"><use href="../assets/icons/sprite.svg#close"/></svg></button>
+</nav>
+
+<main id="main">
+  <header class="page-head">
+    <div class="container">
+      <div class="sec-tag">CTF</div>
+      <h1 class="sec-title">Competition Record</h1>
+      <p class="lead">Results from the events I've played and the challenges I've written up. Cryptography is where most of my solves land, with forensics and OSINT alongside.</p>
+    </div>
+  </header>
+
+  <section class="ctf-page-section" id="certificate">
+    <div class="container">
+      <div class="ctf-grid">
+        <figure class="cert-card">
+          <a href="../assets/img/certs/z0d1ak-2026-participation.jpg" target="_blank" rel="noopener" aria-label="Open the certificate full size">
+            <img src="../assets/img/certs/z0d1ak-2026-participation.jpg" width="1600" height="1132" loading="lazy"
+                 alt="Z0D1AK CTF 2026 Qualifiers certificate of participation, rank 159 of 1,252"/>
+          </a>
+          <figcaption>Z0D1AK CTF Qualifiers · Certificate of Participation</figcaption>
+        </figure>
+        <div>
+          <dl class="facts">
+            <div><dt>Event</dt><dd>Z0D1AK CTF Qualifiers</dd></div>
+            <div><dt>Dates</dt><dd>21–23 Aug 2026</dd></div>
+            <div><dt>Handle</dt><dd>mbuguz</dd></div>
+            <div><dt>Rank</dt><dd>#159 of 1,252</dd></div>
+            <div><dt>Credential</dt><dd>Certificate of Participation</dd></div>
+            <div><dt>Writeups</dt><dd>5 published</dd></div>
+          </dl>
+          <div class="ctf-links">
+            <a class="btn-text" href="../assets/docs/Z0D1AK_CTF-2026_Certificate.pdf" download>Certificate (PDF) <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#download"/></svg></a>
+            <a class="btn-text" href="https://github.com/jaguar999paw-droid/zod1ak-writeups" target="_blank" rel="noopener">Source on GitHub <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#external"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctf-page-section" id="writeups">
+    <div class="container">
+      <div class="sec-tag">Writeups</div>
+      <h2 class="sec-title">Challenges I've Written Up</h2>
+      <p class="sec-subtitle">Each one is published in full with the solver code. Open a preview here, or read it on its own page.</p>
+      <div class="wu-list">
+      <article class="wu">
+        <div class="wu-top"><h3>BLACKBOX</h3><span class="slide-cat">Forensics · Z0D1AK CTF</span></div>
+        <p>Reversed a drone flight-recorder dump built from fixed 16-byte records. Two record types were decoy telemetry; the flag sat in the rare impact records, XOR-masked with a key stored in their own trailer bytes.</p>
+        <div class="project-stack"><span class="stack-badge">Binary parsing</span><span class="stack-badge">XOR</span><span class="stack-badge">Python</span></div>
+        <div class="wu-actions">
+          <button class="btn-text" type="button" data-preview="frame-blackbox" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#eye"/></svg><span class="label">Preview here</span></button>
+          <a class="btn-text" href="https://z0d1ak-writeups.pages.dev/blackbox/" target="_blank" rel="noopener">Open writeup <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#external"/></svg></a>
+        </div>
+        <div class="wu-frame" id="frame-blackbox" hidden>
+          <iframe data-src="https://z0d1ak-writeups.pages.dev/blackbox/" title="BLACKBOX writeup preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts"></iframe>
+        </div>
+      </article>
+      <article class="wu">
+        <div class="wu-top"><h3>REWIND</h3><span class="slide-cat">Cryptography · Z0D1AK CTF</span></div>
+        <p>A stream-cipher service reset its counter on every connection, so the keystream behind the published ciphertext could be reproduced on demand. Encrypting zero bytes handed the keystream back directly.</p>
+        <div class="project-stack"><span class="stack-badge">Keystream reuse</span><span class="stack-badge">XOR</span></div>
+        <div class="wu-actions">
+          <button class="btn-text" type="button" data-preview="frame-rewind" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#eye"/></svg><span class="label">Preview here</span></button>
+          <a class="btn-text" href="https://z0d1ak-writeups.pages.dev/rewind/" target="_blank" rel="noopener">Open writeup <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#external"/></svg></a>
+        </div>
+        <div class="wu-frame" id="frame-rewind" hidden>
+          <iframe data-src="https://z0d1ak-writeups.pages.dev/rewind/" title="REWIND writeup preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts"></iframe>
+        </div>
+      </article>
+      <article class="wu">
+        <div class="wu-top"><h3>REWIND REVENGE</h3><span class="slide-cat">Cryptography · Z0D1AK CTF</span></div>
+        <p>The same premise against AES-GCM: one nonce sealed every command. Nonce reuse exposed the authentication subkey, which was enough to forge a valid tag on a privileged command the server would never seal itself.</p>
+        <div class="project-stack"><span class="stack-badge">AES-GCM</span><span class="stack-badge">GHASH</span><span class="stack-badge">Tag forgery</span></div>
+        <div class="wu-actions">
+          <button class="btn-text" type="button" data-preview="frame-rewind-revenge" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#eye"/></svg><span class="label">Preview here</span></button>
+          <a class="btn-text" href="https://z0d1ak-writeups.pages.dev/rewind-revenge/" target="_blank" rel="noopener">Open writeup <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#external"/></svg></a>
+        </div>
+        <div class="wu-frame" id="frame-rewind-revenge" hidden>
+          <iframe data-src="https://z0d1ak-writeups.pages.dev/rewind-revenge/" title="REWIND REVENGE writeup preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts"></iframe>
+        </div>
+      </article>
+      <article class="wu">
+        <div class="wu-top"><h3>SIREN</h3><span class="slide-cat">Cryptography · Z0D1AK CTF</span></div>
+        <p>An ECDSA server leaked the top bits of each nonce through a function of the message. A handful of signatures was enough for a lattice (Hidden Number Problem) attack to recover the private key and forge a signature.</p>
+        <div class="project-stack"><span class="stack-badge">ECDSA</span><span class="stack-badge">Lattices / LLL</span><span class="stack-badge">Python</span></div>
+        <div class="wu-actions">
+          <button class="btn-text" type="button" data-preview="frame-siren" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#eye"/></svg><span class="label">Preview here</span></button>
+          <a class="btn-text" href="https://z0d1ak-writeups.pages.dev/siren/" target="_blank" rel="noopener">Open writeup <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#external"/></svg></a>
+        </div>
+        <div class="wu-frame" id="frame-siren" hidden>
+          <iframe data-src="https://z0d1ak-writeups.pages.dev/siren/" title="SIREN writeup preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts"></iframe>
+        </div>
+      </article>
+      <article class="wu">
+        <div class="wu-top"><h3>UNCHARTED TIDES</h3><span class="slide-cat">OSINT · Z0D1AK CTF</span></div>
+        <p>Geolocated a photograph of a hilltop church from its architecture and skyline, down to the named church and its town.</p>
+        <div class="project-stack"><span class="stack-badge">Geolocation</span><span class="stack-badge">Image analysis</span></div>
+        <div class="wu-actions">
+          <button class="btn-text" type="button" data-preview="frame-uncharted-tides" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#eye"/></svg><span class="label">Preview here</span></button>
+          <a class="btn-text" href="https://z0d1ak-writeups.pages.dev/uncharted-tides/" target="_blank" rel="noopener">Open writeup <svg class="i" aria-hidden="true"><use href="../assets/icons/sprite.svg#external"/></svg></a>
+        </div>
+        <div class="wu-frame" id="frame-uncharted-tides" hidden>
+          <iframe data-src="https://z0d1ak-writeups.pages.dev/uncharted-tides/" title="UNCHARTED TIDES writeup preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts"></iframe>
+        </div>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctf-page-section notes-block" id="notes" hidden data-needs-notes>
+    <div class="container">
+      <div class="sec-tag">Notes</div>
+      <h2 class="sec-title">Questions or Feedback</h2>
+      <p class="sec-subtitle">Notes are reviewed before they appear.</p>
+      <div class="notes-wrap" id="comments" data-site="jaguar999paw" data-page="ctf" style="margin-top:2rem">
+        <ul class="note-list" aria-live="polite"></ul>
+        <form class="notes-form" novalidate>
+          <div class="cf-field"><label for="nt-name">Name</label>
+            <input type="text" id="nt-name" name="name" autocomplete="name" maxlength="100"/>
+            <div class="cf-error" data-error-for="name"></div></div>
+          <div class="cf-field"><label for="nt-email">Email</label>
+            <input type="email" id="nt-email" name="email" autocomplete="email" maxlength="254"/>
+            <div class="cf-error" data-error-for="email"></div></div>
+          <div class="cf-field"><label for="nt-body">Note</label>
+            <textarea id="nt-body" name="body" maxlength="2000"></textarea>
+            <div class="cf-error" data-error-for="body"></div></div>
+          <div class="cf-hp" aria-hidden="true"><label for="nt-hp">Leave this field empty</label>
+            <input type="text" id="nt-hp" name="_hp" tabindex="-1" autocomplete="off"/></div>
+          <button type="submit" class="cf-submit">Post note</button>
+          <div class="cf-status" role="status" aria-live="polite"></div>
+          <p class="notes-hint">Your email is only used to limit abuse and is never shown.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-copy">pw<span>.dev</span> · Paul Wambugu · Kenya 🇰🇪</div>
+  <div class="footer-right"><a href="../" style="color:inherit">Back to portfolio</a></div>
+</footer>
+
+<script src="../assets/js/ui.js" defer></script>
+<script src="../assets/js/comments.js" defer></script>
+</body>
+</html>

@@ -10,357 +10,40 @@
 <meta property="og:title" content="Paul Wambugu — Software Engineer · Security · Systems"/>
 <meta property="og:description" content="Building security tooling, systems infrastructure, and open-source developer tools from Kenya."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://jaguar999paw-droid.github.io"/>
+<meta property="og:url" content="https://jaguar999paw-portfolio.pages.dev/"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Paul Wambugu — Software Engineer"/>
 <meta name="twitter:description" content="Security · Systems · Shell. Building real infrastructure from Kenya."/>
-<link rel="canonical" href="https://jaguar999paw-droid.github.io"/>
+<link rel="canonical" href="https://jaguar999paw-portfolio.pages.dev/"/>
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"/>
+<meta name="theme-color" content="#080a0e"/>
 <!-- Telegram Mini App SDK — must load before any content -->
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --bg:#080a0e;
-  --bg2:#0e1117;
-  --bg3:#141820;
-  --border:#1e2530;
-  --border2:#252d3a;
-  --teal:#00c9a7;
-  --teal-dim:#00c9a740;
-  --teal-glow:#00c9a720;
-  --amber:#f5a623;
-  --amber-dim:#f5a62330;
-  --red:#e05555;
-  --red-dim:#e0555520;
-  --red-glow:#e0555512;
-  --purple:#a78bfa;
-  --purple-dim:#a78bfa30;
-  --blue:#38bdf8;
-  --blue-dim:#38bdf820;
-  --text:#e8eaf0;
-  --text2:#8a93a8;
-  --text3:#4d5668;
-  /* System font fallbacks for WebView environments where Google Fonts may fail */
-  --font-display:'Syne',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --font-mono:'JetBrains Mono','Courier New',Courier,monospace;
-  --font-body:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --r:8px;
-  --r2:12px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px;-webkit-overflow-scrolling:touch}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font-body);
-  line-height:1.7;
-  overflow-x:hidden;
-}
-/* Grid background — disabled on mobile/WebView to prevent paint jank and blank flash */
-@media(min-width:900px){
-  body::before{
-    content:'';
-    position:fixed;inset:0;
-    background-image:
-      linear-gradient(var(--border) 1px,transparent 1px),
-      linear-gradient(90deg,var(--border) 1px,transparent 1px);
-    background-size:60px 60px;
-    opacity:.18;
-    pointer-events:none;
-    z-index:0;
-  }
-}
-nav{
-  /* sticky instead of fixed — avoids Telegram WebView clipping fixed elements */
-  position:sticky;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 5%;
-  /* Solid fallback — backdrop-filter:blur crashes older Android WebView builds */
-  background:rgba(8,10,14,0.97);
-  border-bottom:1px solid var(--border);
-  /* Force GPU layer for smooth scroll performance in WebView */
-  transform:translateZ(0);
-  -webkit-transform:translateZ(0);
-}
-.nav-logo{font-family:var(--font-mono);font-size:.85rem;color:var(--teal);letter-spacing:.05em}
-.nav-logo span{color:var(--text3)}
-.nav-links{display:flex;gap:1.8rem;list-style:none}
-.nav-links a{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);text-decoration:none;letter-spacing:.08em;transition:color .2s}
-.nav-links a:hover{color:var(--teal)}
-.nav-cta{font-family:var(--font-mono);font-size:.75rem;padding:.42rem 1rem;border:1px solid var(--teal);color:var(--teal);text-decoration:none;border-radius:var(--r);transition:all .2s;letter-spacing:.06em}
-.nav-cta:hover{background:var(--teal-glow)}
-section{position:relative;z-index:1}
-.container{max-width:1160px;margin:0 auto;padding:0 5%}
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;align-items:center;padding:8rem 5% 5rem}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1160px;margin:0 auto;width:100%}
-.hero-eyebrow{font-family:var(--font-mono);font-size:.75rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.7rem}
-.hero-eyebrow::before{content:'';width:2rem;height:1px;background:var(--teal)}
-.hero-name{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem}
-.hero-name .accent{color:var(--teal)}
-.hero-title{font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);font-weight:400;color:var(--text2);margin-bottom:1.8rem;line-height:1.5}
-.hero-title strong{color:var(--text);font-weight:600}
-.hero-bio{font-size:.95rem;color:var(--text2);max-width:480px;margin-bottom:2.5rem;line-height:1.8}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.6rem;background:var(--teal);color:var(--bg);font-family:var(--font-mono);font-size:.8rem;font-weight:500;text-decoration:none;border-radius:var(--r);letter-spacing:.05em;transition:all .2s}
-.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.6rem;border:1px solid var(--border2);color:var(--text2);font-family:var(--font-mono);font-size:.8rem;text-decoration:none;border-radius:var(--r);letter-spacing:.05em;transition:all .2s}
-.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
-.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
-.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal)}
-.stat-label{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
-/* ── TERMINAL ── */
-.hero-terminal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden;font-family:var(--font-mono)}
-.terminal-bar{background:var(--bg3);padding:.65rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}
-.dot{width:10px;height:10px;border-radius:50%}
-.dot.r{background:#e05555}.dot.y{background:#f5a623}.dot.g{background:#00c9a7}
-.terminal-bar span{margin-left:auto;font-size:.7rem;color:var(--text3)}
-.terminal-body{padding:1.4rem 1.2rem;font-size:.78rem;line-height:2.1}
-.t-prompt{color:var(--teal)}.t-cmd{color:var(--text)}.t-comment{color:var(--text3)}
-.t-out{color:var(--text2);padding-left:1rem}.t-key{color:var(--amber)}.t-val{color:var(--teal)}
-.t-red{color:var(--red)}
-.t-cursor{display:inline-block;width:8px;height:13px;background:var(--teal);vertical-align:middle;animation:blink .9s step-end infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-/* ── SECTION HEADERS ── */
-.sec-header{margin-bottom:3.5rem}
-.sec-tag{font-family:var(--font-mono);font-size:.73rem;color:var(--teal);letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
-.sec-tag::before{content:'';width:1.5rem;height:1px;background:var(--teal)}
-.sec-tag.red{color:var(--red)}
-.sec-tag.red::before{background:var(--red)}
-.sec-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
-.sec-subtitle{color:var(--text2);margin-top:.8rem;font-size:.96rem;max-width:560px}
-/* ── ABOUT ── */
-#about{padding:7rem 0}
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start}
-.about-text p{color:var(--text2);font-size:.96rem;line-height:1.9;margin-bottom:1.2rem}
-.about-text p strong{color:var(--text)}
-.about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
-.tag{font-family:var(--font-mono);font-size:.72rem;padding:.3rem .8rem;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:4px;letter-spacing:.05em}
-.about-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:1.8rem}
-.about-card-title{font-family:var(--font-mono);font-size:.73rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.2rem}
-.about-avatar-wrap{display:flex;justify-content:center;margin-bottom:1.6rem}
-.about-avatar{width:112px;height:112px;border-radius:50%;object-fit:cover;border:1px solid var(--border2);box-shadow:0 0 0 6px var(--teal-glow),0 12px 32px -8px rgba(0,201,167,.35);filter:saturate(1.02) contrast(1.03)}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.87rem}
-.info-row:last-child{border-bottom:none}
-.info-label{color:var(--text3);font-family:var(--font-mono);font-size:.75rem;letter-spacing:.05em}
-.info-val{color:var(--text);text-align:right}
-.info-val a{color:var(--teal);text-decoration:none}
-.info-val a:hover{text-decoration:underline}
-.avail-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--teal);margin-right:.4rem;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-/* ── EXPERTISE DOMAINS ── */
-#domains{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.domains-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
-.domain-card{background:var(--bg);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem 1.6rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;cursor:default}
-.domain-card:hover{transform:translateY(-4px)}
-.domain-card.shell{border-top:2px solid var(--teal)}
-.domain-card.ai{border-top:2px solid var(--amber)}
-.domain-card.sec{border-top:2px solid var(--red)}
-.domain-card.gfx{border-top:2px solid var(--purple)}
-.domain-card:hover.shell{border-color:var(--teal)}
-.domain-card:hover.ai{border-color:var(--amber)}
-.domain-card:hover.sec{border-color:var(--red)}
-.domain-card:hover.gfx{border-color:var(--purple)}
-.domain-icon{font-size:1.8rem;margin-bottom:1rem}
-.domain-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
-.domain-card.shell .domain-label{color:var(--teal)}
-.domain-card.ai .domain-label{color:var(--amber)}
-.domain-card.sec .domain-label{color:var(--red)}
-.domain-card.gfx .domain-label{color:var(--purple)}
-.domain-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.01em}
-.domain-card p{color:var(--text2);font-size:.84rem;line-height:1.75;margin-bottom:1.2rem}
-.domain-pills{display:flex;flex-wrap:wrap;gap:.35rem}
-.pill{font-family:var(--font-mono);font-size:.64rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.04em}
-.shell .pill{background:var(--teal-glow);border:1px solid var(--teal-dim);color:var(--teal)}
-.ai .pill{background:var(--amber-dim);border:1px solid var(--amber-dim);color:var(--amber)}
-.sec .pill{background:rgba(224,85,85,.12);border:1px solid rgba(224,85,85,.3);color:var(--red)}
-.gfx .pill{background:var(--purple-dim);border:1px solid var(--purple-dim);color:var(--purple)}
-/* ── PROJECTS ── */
-#projects{padding:7rem 0}
-.projects-grid{display:grid;gap:1.5rem}
-.project-featured{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden;transition:border-color .3s}
-.project-featured:hover{border-color:var(--teal-dim)}
-.project-visual{background:var(--bg3);min-height:300px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);position:relative;overflow:hidden}
-.project-visual svg{width:80%;height:80%;opacity:.75}
-.project-body{padding:2.5rem}
-.project-number{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);letter-spacing:.15em;margin-bottom:1rem}
-.project-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.02em}
-.project-desc{color:var(--text2);font-size:.91rem;line-height:1.8;margin-bottom:1.5rem}
-.project-stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem}
-.stack-badge{font-family:var(--font-mono);font-size:.67rem;padding:.2rem .55rem;border:1px solid var(--border2);color:var(--text3);border-radius:3px;letter-spacing:.04em}
-.project-links{display:flex;gap:1rem}
-.proj-link{font-family:var(--font-mono);font-size:.76rem;color:var(--teal);text-decoration:none;letter-spacing:.05em;display:flex;align-items:center;gap:.3rem;transition:opacity .2s}
-.proj-link:hover{opacity:.7}
-.proj-link.dim{color:var(--text3)}
-.proj-link.dim:hover{color:var(--text2);opacity:1}
-.projects-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
-.proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
-.proj-card:hover{border-color:var(--teal-dim);transform:translateY(-3px)}
-.proj-card.sec-card:hover{border-color:rgba(224,85,85,.3)}
-.proj-card-tag{font-family:var(--font-mono);font-size:.67rem;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
-.proj-card-tag.red{color:var(--red)}
-.proj-card-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.01em}
-.proj-card-desc{color:var(--text2);font-size:.85rem;line-height:1.75;flex:1;margin-bottom:1.3rem}
-.proj-card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:1rem;font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
-.proj-card-foot a{color:var(--teal);text-decoration:none}
-.proj-card-foot a:hover{text-decoration:underline}
-/* ── SECURITY SECTION ── */
-#security{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.sec-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:start}
-.sec-body p{color:var(--text2);font-size:.96rem;line-height:1.9;margin-bottom:1.2rem}
-.sec-body p strong{color:var(--text)}
-.attack-table{width:100%;border-collapse:collapse;margin-top:2rem;font-family:var(--font-mono);font-size:.74rem}
-.attack-table th{text-align:left;padding:.5rem .8rem;color:var(--text3);border-bottom:1px solid var(--border);letter-spacing:.08em}
-.attack-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border);color:var(--text2)}
-.attack-table td:first-child{color:var(--text)}
-.attack-table tr:last-child td{border-bottom:none}
-.cov-full{color:var(--teal)}
-.cov-part{color:var(--amber)}
-.servers-grid{display:grid;gap:.7rem}
-.server-row{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem}
-.server-row:hover{border-color:rgba(224,85,85,.25)}
-.server-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
-.server-name{font-family:var(--font-mono);font-size:.78rem;color:var(--text);flex:1}
-.server-tools{font-family:var(--font-mono);font-size:.68rem;color:var(--text3)}
-.server-cat{font-family:var(--font-mono);font-size:.66rem;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
-.toolbox-note{margin-top:1.5rem;background:var(--red-glow);border:1px solid rgba(224,85,85,.2);border-radius:var(--r);padding:1.1rem 1.3rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text2);line-height:1.8}
-.toolbox-note strong{color:var(--red)}
-/* ── BLUEPRINT ── */
-#blueprint{padding:7rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.bp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.bp-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem;position:relative;overflow:hidden}
-.bp-card::before{content:attr(data-n);position:absolute;top:-1rem;right:1rem;font-family:var(--font-display);font-size:5rem;font-weight:800;color:var(--teal);opacity:.04;line-height:1}
-.bp-status{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.67rem;padding:.22rem .65rem;border-radius:3px;margin-bottom:1.2rem;letter-spacing:.06em}
-.bp-status.building{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-dim)}
-.bp-status.planned{background:var(--border);color:var(--text3);border:1px solid var(--border2)}
-.bp-status.oss{background:var(--teal-glow);color:var(--teal);border:1px solid var(--teal-dim)}
-.bp-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:.6rem}
-.bp-card p{color:var(--text2);font-size:.87rem;line-height:1.75;margin-bottom:1.2rem}
-.bp-meta{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);border-top:1px solid var(--border);padding-top:1rem;line-height:2}
-.bp-meta strong{color:var(--text2)}
-/* ── SOLID ── */
-#solid{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.solid-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:3rem}
-.solid-cell{background:var(--bg2);padding:1.8rem 1.3rem;transition:background .2s}
-.solid-cell:hover{background:var(--bg3)}
-.solid-letter{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:var(--teal);opacity:.6;margin-bottom:.4rem}
-.solid-word{font-family:var(--font-mono);font-size:.68rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem}
-.solid-desc{color:var(--text2);font-size:.82rem;line-height:1.7}
-/* ── STACK ── */
-#stack{padding:7rem 0}
-.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:3rem}
-.stack-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem .9rem;display:flex;align-items:center;gap:.7rem;transition:border-color .2s}
-.stack-item:hover{border-color:var(--teal-dim)}
-.stack-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
-.stack-item span{font-family:var(--font-mono);font-size:.74rem;color:var(--text2);letter-spacing:.04em}
-/* ── KENYA ── */
-#kenya{padding:7rem 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.kenya-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
-.kenya-card{background:var(--bg);border:1px solid var(--border2);border-radius:var(--r2);padding:2rem;display:flex;gap:1.2rem;transition:border-color .2s}
-.kenya-card:hover{border-color:var(--teal-dim)}
-.kenya-icon{width:42px;height:42px;border-radius:var(--r);background:var(--teal-glow);border:1px solid var(--teal-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
-.kenya-card h4{font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:.4rem}
-.kenya-card p{color:var(--text2);font-size:.86rem;line-height:1.7}
-/* ── CONTACT ── */
-#contact{padding:8rem 0}
-.contact-inner{max-width:720px;margin:0 auto;text-align:center}
-.contact-inner .sec-tag{justify-content:center}
-.contact-inner .sec-tag::before{display:none}
-.contact-inner .sec-title{margin-bottom:1rem}
-.contact-inner p{color:var(--text2);margin-bottom:2.5rem}
-.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.contact-link{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border:1px solid var(--border2);color:var(--text2);font-family:var(--font-mono);font-size:.78rem;text-decoration:none;border-radius:var(--r);letter-spacing:.06em;transition:all .2s}
-.contact-link:hover{border-color:var(--teal);color:var(--teal)}
-.contact-link.primary{background:var(--teal);border-color:var(--teal);color:var(--bg)}
-.contact-link.primary:hover{filter:brightness(1.1)}
-.contact-form{max-width:480px;margin:2.5rem auto 0;text-align:left;display:flex;flex-direction:column;gap:1.1rem}
-.cf-field{display:flex;flex-direction:column;gap:.4rem}
-.cf-field label{font-family:var(--font-mono);font-size:.72rem;color:var(--text2);letter-spacing:.06em;text-transform:uppercase}
-.cf-field input,.cf-field textarea{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font-mono);font-size:.85rem;padding:.65rem .8rem;outline:none;transition:border-color .2s;resize:vertical}
-.cf-field input:focus,.cf-field textarea:focus{border-color:var(--teal)}
-.cf-field input.cf-invalid,.cf-field textarea.cf-invalid{border-color:var(--red)}
-.cf-field textarea{min-height:120px}
-.cf-error{font-family:var(--font-mono);font-size:.72rem;color:var(--red);min-height:1em}
-.cf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
-.cf-submit{align-self:flex-start;font-family:var(--font-mono);font-size:.8rem;font-weight:500;letter-spacing:.05em;padding:.72rem 1.6rem;background:var(--teal);color:var(--bg);border:none;border-radius:var(--r);cursor:pointer;transition:all .2s}
-.cf-submit:hover{filter:brightness(1.1)}
-.cf-submit:disabled{opacity:.6;cursor:not-allowed}
-.cf-status{font-family:var(--font-mono);font-size:.78rem;min-height:1.2em}
-.cf-status-ok{color:var(--teal)}
-.cf-status-error{color:var(--red)}
-footer{border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
-.footer-copy span{color:var(--teal)}
-.footer-right{font-family:var(--font-mono);font-size:.7rem;color:var(--text3)}
-/* ── ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-/* ── RESPONSIVE ── */
-@media(max-width:1000px){
-  .domains-grid{grid-template-columns:repeat(2,1fr)}
-  .sec-grid{grid-template-columns:1fr}
-}
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-terminal{display:none}
-  .about-grid{grid-template-columns:1fr}
-  .project-featured{grid-template-columns:1fr}
-  .project-visual{display:none}
-  .projects-secondary{grid-template-columns:1fr}
-  .bp-grid{grid-template-columns:1fr}
-  .solid-grid{grid-template-columns:1fr}
-  .kenya-grid{grid-template-columns:1fr}
-  nav .nav-links{display:none}
-}
-@media(max-width:600px){
-  .domains-grid{grid-template-columns:1fr}
-  .stack-grid{grid-template-columns:1fr 1fr}
-  .hero-stats{gap:1.5rem}
-  .hero-name{font-size:2.4rem}
-}
-
-/* ===== Interactivity layer additions ===== */
-section[id]{scroll-margin-top:76px}
-nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
-.nav-links a{position:relative}
-.nav-links a.active{color:var(--teal)}
-.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--teal)}
-.api-status{display:inline-block;width:6px;height:6px;border-radius:50%;margin-left:.5rem;background:var(--text3);transition:background .3s ease}
-.api-status.online{background:var(--teal);box-shadow:0 0 6px var(--teal-glow)}
-.api-status.offline{background:var(--red)}
-.stack-badge{cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease}
-.stack-badge:hover{border-color:var(--teal-dim);color:var(--teal)}
-.stack-badge.copied{background:var(--teal-glow);border-color:var(--teal);color:var(--teal)}
-.proj-card,.project-featured{position:relative;overflow:hidden}
-.proj-card::after,.project-featured::after{content:"";position:absolute;inset:0;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),var(--teal-glow),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none}
-.proj-card.tilt-active::after,.project-featured.tilt-active::after{opacity:1}
-.stat-num{transition:opacity .2s ease}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1!important;transform:none!important;transition:none!important}
-  .proj-card,.project-featured{transition:none!important}
-  html{scroll-behavior:auto}
-}
-</style>
+<link rel="stylesheet" href="assets/css/site.css"/>
+<link rel="stylesheet" href="assets/css/extras.css"/>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav>
   <div class="nav-logo">pw<span>.</span>dev<span id="api-status" class="api-status" title="checking backend&#8230;" aria-label="backend status"></span></div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#domains">expertise</a></li>
     <li><a href="#projects">projects</a></li>
     <li><a href="#security">security</a></li>
+    <li><a href="#ctf">ctf</a></li>
     <li><a href="#stack">stack</a></li>
     <li><a href="#contact">contact</a></li>
+    <li data-needs-notes hidden><a href="#notes">notes</a></li>
   </ul>
   <a class="nav-cta" href="mailto:jaguar999paw@gmail.com">hire me</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu"><svg class="i i-menu" aria-hidden="true"><use href="assets/icons/sprite.svg#menu"/></svg><svg class="i i-close" aria-hidden="true"><use href="assets/icons/sprite.svg#close"/></svg></button>
 </nav>
 
+<main id="main">
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <section id="hero">
   <div class="hero-inner">
@@ -391,7 +74,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
       </div>
       <div class="terminal-body">
         <div><span class="t-prompt">❯</span> <span class="t-cmd">ssh_health_check_fleet</span></div>
-        <div class="t-out"><span class="t-val">web01</span> <span class="t-red">ok</span>  <span class="t-val">db01</span> <span class="t-red">ok</span>  <span class="t-val">jump01</span> <span class="t-red">ok</span></div>
+        <div class="t-out"><span class="t-cmd">web01</span> <span class="t-val">ok</span>  <span class="t-cmd">db01</span> <span class="t-val">ok</span>  <span class="t-cmd">jump01</span> <span class="t-val">ok</span></div>
         <br/>
         <div><span class="t-prompt">❯</span> <span class="t-cmd">docker ps --format "{{.Names}}"</span></div>
         <div class="t-out"><span class="t-red">dizaster-lab</span> <span class="t-comment"># running</span></div>
@@ -452,7 +135,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
     </div>
     <div class="domains-grid">
       <div class="domain-card shell reveal">
-        <div class="domain-icon">🐚</div>
+        <div class="domain-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#terminal"/></svg></div>
         <div class="domain-label">Shell · Systems</div>
         <h3>Bash / Shell Engineering</h3>
         <p>Production-grade Bash and Zsh scripting — cron pipelines, daemon scripts, signal handling, process orchestration. If it runs on Linux, I can automate it. Shell is my first language.</p>
@@ -462,7 +145,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         </div>
       </div>
       <div class="domain-card ai reveal reveal-delay-1">
-        <div class="domain-icon">⚙️</div>
+        <div class="domain-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#layers"/></svg></div>
         <div class="domain-label">Infrastructure · Tooling</div>
         <h3>Systems &amp; Infrastructure</h3>
         <p>Building developer tools and infrastructure that runs in production. SSH orchestration libraries, self-hosted VPN control planes, media processing pipelines, and communications servers.</p>
@@ -472,7 +155,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         </div>
       </div>
       <div class="domain-card sec reveal reveal-delay-2">
-        <div class="domain-icon">🔐</div>
+        <div class="domain-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#shield"/></svg></div>
         <div class="domain-label">Security · CTF</div>
         <h3>Offensive Security</h3>
         <p>Run a Kali Linux lab wired to a set of custom MCP security servers, used to compete in CTF challenges and practice offensive techniques across the MITRE ATT&CK framework.</p>
@@ -482,7 +165,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         </div>
       </div>
       <div class="domain-card gfx reveal reveal-delay-3">
-        <div class="domain-icon">🎨</div>
+        <div class="domain-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#pen"/></svg></div>
         <div class="domain-label">Graphics · Design</div>
         <h3>Graphics &amp; Visual Design</h3>
         <p>Vector illustrations, UI mockups, system architecture diagrams, and design systems. Design thinking applied to technical communication — making complexity legible.</p>
@@ -585,11 +268,119 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
   </div>
 </section>
 
+<!-- ═══════════════════ CTF ═══════════════════ -->
+<section id="ctf">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">05 / CTF</div>
+      <h2 class="sec-title">Competition Record</h2>
+      <p class="sec-subtitle">Results from events I've played, and the challenge writeups I've published.</p>
+    </div>
+    <div class="ctf-grid">
+      <figure class="cert-card reveal">
+        <a href="assets/img/certs/z0d1ak-2026-participation.jpg" target="_blank" rel="noopener" aria-label="Open the Z0D1AK CTF 2026 certificate full size">
+          <img src="assets/img/certs/z0d1ak-2026-participation-640.jpg"
+               srcset="assets/img/certs/z0d1ak-2026-participation-640.jpg 640w, assets/img/certs/z0d1ak-2026-participation.jpg 1600w"
+               sizes="(max-width:900px) 92vw, 600px" width="640" height="453" loading="lazy"
+               alt="Z0D1AK CTF 2026 Qualifiers certificate of participation, rank 159 of 1,252"/>
+        </a>
+        <figcaption>Z0D1AK CTF Qualifiers · Certificate of Participation</figcaption>
+      </figure>
+      <div class="reveal reveal-delay-1">
+        <dl class="facts">
+          <div><dt>Event</dt><dd>Z0D1AK CTF Qualifiers</dd></div>
+          <div><dt>Dates</dt><dd>21–23 Aug 2026</dd></div>
+          <div><dt>Rank</dt><dd>#159 of 1,252</dd></div>
+          <div><dt>Credential</dt><dd>Certificate of Participation</dd></div>
+          <div><dt>Writeups</dt><dd>5 published</dd></div>
+        </dl>
+        <div class="ctf-links">
+          <a class="btn-text" href="ctf/">Full CTF record <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#chevron-right"/></svg></a>
+          <a class="btn-text" href="assets/docs/Z0D1AK_CTF-2026_Certificate.pdf" download>Certificate (PDF) <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#download"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="slider reveal" data-slider>
+      <div class="slider-head">
+        <span class="slider-title" id="wu-title">Published writeups</span>
+        <div class="slider-controls">
+          <div class="slider-dots"></div>
+          <button class="slider-btn" type="button" data-slider-prev aria-label="Previous writeup"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#chevron-left"/></svg></button>
+          <button class="slider-btn" type="button" data-slider-next aria-label="Next writeup"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#chevron-right"/></svg></button>
+        </div>
+      </div>
+      <div class="slider-track" tabindex="0" role="group" aria-roledescription="carousel" aria-labelledby="wu-title">
+      <article class="slide" aria-roledescription="slide" aria-label="1 of 5">
+        <pre class="slide-art amber" aria-hidden="true">offset    type  payload
+<b>0x0000</b>    01    a3 7f c2 01 9e 44 10 3b
+0x0010    02    a3 80 c2 01 9e 45 10 3c
+<b>0x0020</b>    03    impact · xor key in trailer</pre>
+        <div class="slide-body">
+          <div class="slide-cat">Forensics · Z0D1AK CTF</div>
+          <h3>BLACKBOX</h3>
+          <p>Reversed a drone flight-recorder dump built from fixed 16-byte records. Two record types were decoy telemetry; the flag sat in the rare impact records, XOR-masked with a key stored in their own trailer bytes.</p>
+          <div class="project-stack"><span class="stack-badge">Binary parsing</span><span class="stack-badge">XOR</span><span class="stack-badge">Python</span></div>
+          <div class="slide-foot"><a class="btn-text" href="https://z0d1ak-writeups.pages.dev/blackbox/" target="_blank" rel="noopener">Read writeup <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#external"/></svg></a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="slide" aria-label="2 of 5">
+        <pre class="slide-art " aria-hidden="true">ks = encrypt(0x00 * n)      <b># counter resets</b>
+pt = ct ^ ks
+<b># same keystream every connection</b></pre>
+        <div class="slide-body">
+          <div class="slide-cat">Cryptography · Z0D1AK CTF</div>
+          <h3>REWIND</h3>
+          <p>A stream-cipher service reset its counter on every connection, so the keystream behind the published ciphertext could be reproduced on demand. Encrypting zero bytes handed the keystream back directly.</p>
+          <div class="project-stack"><span class="stack-badge">Keystream reuse</span><span class="stack-badge">XOR</span></div>
+          <div class="slide-foot"><a class="btn-text" href="https://z0d1ak-writeups.pages.dev/rewind/" target="_blank" rel="noopener">Read writeup <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#external"/></svg></a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="slide" aria-label="3 of 5">
+        <pre class="slide-art " aria-hidden="true">tag = GHASH(H, A, C) ^ E(K, J0)
+<b># one nonce for every command</b>
+<b># → H recoverable → tag forgeable</b></pre>
+        <div class="slide-body">
+          <div class="slide-cat">Cryptography · Z0D1AK CTF</div>
+          <h3>REWIND REVENGE</h3>
+          <p>The same premise against AES-GCM: one nonce sealed every command. Nonce reuse exposed the authentication subkey, which was enough to forge a valid tag on a privileged command the server would never seal itself.</p>
+          <div class="project-stack"><span class="stack-badge">AES-GCM</span><span class="stack-badge">GHASH</span><span class="stack-badge">Tag forgery</span></div>
+          <div class="slide-foot"><a class="btn-text" href="https://z0d1ak-writeups.pages.dev/rewind-revenge/" target="_blank" rel="noopener">Read writeup <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#external"/></svg></a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="slide" aria-label="4 of 5">
+        <pre class="slide-art " aria-hidden="true">k_i = f(msg_i) | leak(10 bits)
+find x :  s_i·k_i ≡ h_i + r_i·x  (mod n)
+<b>→ lattice reduction (LLL)</b></pre>
+        <div class="slide-body">
+          <div class="slide-cat">Cryptography · Z0D1AK CTF</div>
+          <h3>SIREN</h3>
+          <p>An ECDSA server leaked the top bits of each nonce through a function of the message. A handful of signatures was enough for a lattice (Hidden Number Problem) attack to recover the private key and forge a signature.</p>
+          <div class="project-stack"><span class="stack-badge">ECDSA</span><span class="stack-badge">Lattices / LLL</span><span class="stack-badge">Python</span></div>
+          <div class="slide-foot"><a class="btn-text" href="https://z0d1ak-writeups.pages.dev/siren/" target="_blank" rel="noopener">Read writeup <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#external"/></svg></a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="slide" aria-label="5 of 5">
+        <pre class="slide-art red" aria-hidden="true">challenge.jpg   <b>→ hilltop church</b>
+architecture · skyline · terrain
+<b>→ coordinates → place name</b></pre>
+        <div class="slide-body">
+          <div class="slide-cat">OSINT · Z0D1AK CTF</div>
+          <h3>UNCHARTED TIDES</h3>
+          <p>Geolocated a photograph of a hilltop church from its architecture and skyline, down to the named church and its town.</p>
+          <div class="project-stack"><span class="stack-badge">Geolocation</span><span class="stack-badge">Image analysis</span></div>
+          <div class="slide-foot"><a class="btn-text" href="https://z0d1ak-writeups.pages.dev/uncharted-tides/" target="_blank" rel="noopener">Read writeup <svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#external"/></svg></a></div>
+        </div>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════ BLUEPRINT ═══════════════════ -->
 <section id="blueprint">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">05 / Roadmap</div>
+      <div class="sec-tag">06 / Roadmap</div>
       <h2 class="sec-title">2026 Portfolio Blueprint</h2>
       <p class="sec-subtitle">Three projects in active development — designed to prove full-stack, infrastructure, and open-source competency for both Kenyan and global markets.</p>
     </div>
@@ -604,7 +395,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         </div>
       </div>
       <div class="bp-card reveal reveal-delay-1" data-n="02">
-        <div class="bp-status planned">○ Planned · Q3 2026</div>
+        <div class="bp-status planned">○ Planned</div>
         <h3>EdgeCache</h3>
         <p>A benchmarking and observability project for distributed caching. Measures Redis vs in-process caching under load, with a live dashboard showing hit rates, latency distributions, and memory usage.</p>
         <div class="bp-meta">
@@ -629,7 +420,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 <section id="solid">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">06 / Engineering Philosophy</div>
+      <div class="sec-tag">07 / Engineering Philosophy</div>
       <h2 class="sec-title">SOLID by Design</h2>
       <p class="sec-subtitle">Every project in this portfolio is architected around these principles — not as theory, but as working code decisions.</p>
     </div>
@@ -667,7 +458,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 <section id="stack">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">07 / Tech Stack</div>
+      <div class="sec-tag">08 / Tech Stack</div>
       <h2 class="sec-title">Tools of the Trade</h2>
     </div>
     <div class="stack-grid reveal">
@@ -705,7 +496,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 <section id="kenya">
   <div class="container">
     <div class="sec-header reveal">
-      <div class="sec-tag">08 / Local Edge</div>
+      <div class="sec-tag">09 / Local Edge</div>
       <h2 class="sec-title">Built for Kenya</h2>
       <p class="sec-subtitle">Understanding the local tech ecosystem is a competitive advantage. These are the competencies that matter for Kenyan engineering roles — from Safaricom to early-stage startups.</p>
     </div>
@@ -718,21 +509,21 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
         </div>
       </div>
       <div class="kenya-card reveal reveal-delay-1">
-        <div class="kenya-icon">📡</div>
+        <div class="kenya-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#signal"/></svg></div>
         <div>
           <h4>Africa's Talking</h4>
           <p>SMS, USSD, and voice integrations for low-bandwidth, feature-phone-first markets. Building for real Kenyan network conditions, not ideal ones.</p>
         </div>
       </div>
       <div class="kenya-card reveal reveal-delay-2">
-        <div class="kenya-icon">🔒</div>
+        <div class="kenya-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#lock"/></svg></div>
         <div>
           <h4>Security Culture</h4>
           <p>Kenya's growing fintech and data sectors need security practitioners who understand local threat models. My lab and CTF practice are directly applicable to this gap.</p>
         </div>
       </div>
       <div class="kenya-card reveal reveal-delay-3">
-        <div class="kenya-icon">🌍</div>
+        <div class="kenya-icon"><svg class="i" aria-hidden="true"><use href="assets/icons/sprite.svg#globe"/></svg></div>
         <div>
           <h4>Open Source for Africa</h4>
           <p>Building reusable SDKs and tooling that other Kenyan developers can use — reducing duplicated work across the ecosystem and raising the baseline for everyone.</p>
@@ -746,7 +537,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 <section id="contact">
   <div class="container">
     <div class="contact-inner">
-      <div class="sec-tag">09 / Contact</div>
+      <div class="sec-tag">10 / Contact</div>
       <h2 class="sec-title">Get in Touch</h2>
       <p>I'm actively looking for full-time Software Engineering opportunities in security, systems engineering, backend development, or infrastructure. If you're building something real in Kenya or globally — let's talk.</p>
       <div class="contact-links">
@@ -783,6 +574,37 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
   </div>
 </section>
 
+
+<!-- ═══════════════════ NOTES (comments) ═══════════════════ -->
+<section id="notes" hidden data-needs-notes>
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">11 / Notes</div>
+      <h2 class="sec-title">Leave a Note</h2>
+      <p class="sec-subtitle">Feedback, a question, or just a hello. Notes are reviewed before they appear.</p>
+    </div>
+    <div class="notes-wrap" id="comments" data-site="jaguar999paw" data-page="home">
+      <ul class="note-list" aria-live="polite"></ul>
+      <form class="notes-form" novalidate>
+        <div class="cf-field"><label for="nt-name">Name</label>
+          <input type="text" id="nt-name" name="name" autocomplete="name" maxlength="100"/>
+          <div class="cf-error" data-error-for="name"></div></div>
+        <div class="cf-field"><label for="nt-email">Email</label>
+          <input type="email" id="nt-email" name="email" autocomplete="email" maxlength="254"/>
+          <div class="cf-error" data-error-for="email"></div></div>
+        <div class="cf-field"><label for="nt-body">Note</label>
+          <textarea id="nt-body" name="body" maxlength="2000"></textarea>
+          <div class="cf-error" data-error-for="body"></div></div>
+        <div class="cf-hp" aria-hidden="true"><label for="nt-hp">Leave this field empty</label>
+          <input type="text" id="nt-hp" name="_hp" tabindex="-1" autocomplete="off"/></div>
+        <button type="submit" class="cf-submit">Post note</button>
+        <div class="cf-status" role="status" aria-live="polite"></div>
+        <p class="notes-hint">Your email is only used to limit abuse and is never shown.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
 <footer>
   <div class="footer-copy">pw<span>.dev</span> · Paul Wambugu · Kenya 🇰🇪</div>
   <div class="footer-right">Built with HTML · No frameworks · No dependencies</div>
@@ -790,5 +612,7 @@ nav.nav-scrolled{padding:.7rem 5%;border-bottom-color:var(--teal-dim)}
 
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/contact.js" defer></script>
+<script src="assets/js/ui.js" defer></script>
+<script src="assets/js/comments.js" defer></script>
 </body>
 </html>
