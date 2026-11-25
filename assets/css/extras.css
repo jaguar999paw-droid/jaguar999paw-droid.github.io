@@ -129,3 +129,11 @@ nav.open .nav-toggle .i-close{ display:inline; }
 @media(prefers-reduced-motion:reduce){
   .slider-track{ scroll-behavior:auto; }
 }
+
+/* CTF certificates & event media slider (reuses slider JS) */
+.media-slider .slide{ flex:0 0 min(420px,88%); }
+.slide-media{ display:block; line-height:0; background:var(--bg3); border-bottom:1px solid var(--border); aspect-ratio:4/3; }
+.slide-media img{ width:100%; height:100%; object-fit:contain; display:block; transition:opacity .2s; }
+.slide-media:hover img{ opacity:.92; }
+.media-slider .slide-body{ padding:1rem 1.2rem 1.1rem; }
+.media-slider .slide h3{ margin-bottom:0; }
